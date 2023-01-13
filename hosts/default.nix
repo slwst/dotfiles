@@ -4,7 +4,6 @@ let
   inherit (self.lib) nixosSystem;
 
   i3 = ../modules/i3;
-  rofi = ../modules/rofi;
   sharedModules = [
     inputs.home-manager.nixosModules.home-manager
     {
@@ -20,18 +19,28 @@ let
 in
 {
   # desktop
+  epsilon = nixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      { networking.hostName = "epsilon"; }
+      ./epsilon
+      i3
+    ]
+    ++ sharedModules;
+    specialArgs = { inherit inputs; };
+  };
 
   # vm
   nixie = nixosSystem {
+    system = "x86_64-linux";
     modules =
       [
-        ./nixie
         { networking.hostName = "nixie"; }
+        ./nixie
         i3
       ]
       ++ sharedModules;
     specialArgs = { inherit inputs; };
-    system = "x86_64-linux";
   };
 }
   
