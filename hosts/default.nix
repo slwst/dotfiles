@@ -3,6 +3,8 @@ let
   inherit (inputs) self;
   inherit (self.lib) nixosSystem;
 
+  i3 = ../modules/i3;
+  rofi = ../modules/rofi;
   sharedModules = [
     inputs.home-manager.nixosModules.home-manager
     {
@@ -10,7 +12,7 @@ let
         useGlobalPkgs = true;
         useUserPackages = true;
         extraSpecialArgs = { inherit inputs self; };
-        users.slwst = ../home/slwst;
+        users.slwst = ../modules/home;
       };
     }
   ];
@@ -25,6 +27,7 @@ in
       [
         ./nixie
         { networking.hostName = "nixie"; }
+        i3
       ]
       ++ sharedModules;
     specialArgs = { inherit inputs; };

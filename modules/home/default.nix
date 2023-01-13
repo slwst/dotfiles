@@ -6,5 +6,14 @@
     #	extraOutputsToInstall = ["doc" "devdoc"];
   };
 
+  imports = [
+    ./packages.nix
+
+    ./git
+    ./rofi
+    ./polybar
+    ./tools
+  ];
+
   programs.home-manager.enable = true;
 }
