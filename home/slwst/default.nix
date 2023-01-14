@@ -10,5 +10,6 @@
     ./packages.nix
 
     ./modules/shell
+    ./modules/windowManager
   ];
 }

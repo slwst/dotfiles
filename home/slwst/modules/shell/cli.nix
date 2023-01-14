@@ -11,10 +11,6 @@
   ];
 
   programs = {
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
     tealdeer = {
       enable = true;
       settings = {

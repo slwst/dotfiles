@@ -24,7 +24,6 @@ in
     modules = [
       { networking.hostName = "epsilon"; }
       ./epsilon
-      ../modules/i3
     ]
     ++ sharedModules;
     specialArgs = { inherit inputs; };
@@ -37,7 +36,6 @@ in
       [
         { networking.hostName = "nixie"; }
         ./nixie
-        ../modules/i3
       ]
       ++ sharedModules;
     specialArgs = { inherit inputs; };

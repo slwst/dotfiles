@@ -7,11 +7,12 @@
       packages = with pkgs; [dconf gcr udisks2];
       enable = true;
     };
-    udev.packages = with pkgs; [gnome.gnome-settings-daemon];
     journald.extraConfig = ''
       MaxRetentionSec = 3456000
     '';
+    udev.packages = with pkgs; [gnome.gnome-settings-daemon];
     udisks2.enable = true;
+    pcscd.enable = true;
   };
 
   environment.variables = {
@@ -19,9 +20,11 @@
     BROWSER = "brave";
   };
   environment.systemPackages = with pkgs; [
+    cryptsetup
     git
-    vim
     kitty #for terminfo
+    parted
+    vim
   ];
 
   time.timeZone = "America/New_York";

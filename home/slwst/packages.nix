@@ -20,6 +20,7 @@ pkgs
     ripgrep
     rsync
     session-desktop
+    tree
     ttyper
     unzip
     xfce.thunar

@@ -23,6 +23,17 @@
   hardware = {
     opengl = {
       enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        intel-compute-runtime
+        intel-media-driver # iHD
+        libva
+        libvdpau
+        libvdpau-va-gl
+        (vaapiIntel.override {enableHybridCodec = true;}) # i965 (older but works better for Firefox/Chromium)
+        vaapiVdpau
+      ];
     };
     bluetooth = {
       enable = true;
@@ -37,6 +48,19 @@
     upower.enable = true;
   };
 
+  environment = {
+    variables = {__GL_MaxFramesAllowed = "0";};
+
+    systemPackages = with pkgs; [
+      acpi
+      brightnessctl
+      gcc
+      libva-utils
+      ocl-icd
+      vulkan-tools
+    ];
+  };
+
   modules.nixos = {
     bootloader.grub = {
       enable = true;
@@ -49,15 +73,20 @@
     virtualisation = {
       docker = {
         enable = true;
-       # enableNvidia = true;
+        enableNvidia = true;
       };
 
       libvirtd.enable = true;
 
       podman = {
         enable = true;
-       # enableNvidia = true;
+        enableNvidia = true;
       };
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      layout = "us";
     };
   };
 
