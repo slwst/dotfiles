@@ -11,5 +11,6 @@
     ./nix.nix
     ./network.nix
     ./openssh.nix
+    ./users.nix
   ];
 }

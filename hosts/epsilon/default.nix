@@ -6,6 +6,7 @@
   imports = [
     ./hardware-configuration.nix
 
+    # shared config
     ../shared
   ];
 
@@ -48,14 +49,14 @@
     virtualisation = {
       docker = {
         enable = true;
-        enableNvidia = true;
+       # enableNvidia = true;
       };
 
       libvirtd.enable = true;
 
       podman = {
         enable = true;
-        enableNvidia = true;
+       # enableNvidia = true;
       };
     };
   };

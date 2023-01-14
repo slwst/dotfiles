@@ -1,16 +1,17 @@
-{ inputs
-, pkgs
+{ 
+pkgs
 , config
 , ...
 }: {
-  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     bandwhich
     brave
     cached-nix-shell
+    coreutils
     dconf
     fd
     gcc
+    helix
     imagemagick
     jq
     lm_sensors

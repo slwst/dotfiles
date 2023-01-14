@@ -24,11 +24,10 @@
 
 
   ## [TODO] fix this
-  # nixpkgs.pkgs = inputs.self.pkgs;
-  # nixpkgs.pkgs = nixpkgs.legacyPackages.${system};
+#  nixpkgs.pkgs = inputs.self.pkgs;
+  nixpkgs.config.allowUnfree = true;
 
   nix = {
-    package = pkgs.nixUnstable;
     gc = {
       automatic = true;
       dates = "daily";

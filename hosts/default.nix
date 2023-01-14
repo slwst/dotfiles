@@ -1,43 +1,43 @@
-inputs:
+{inputs,
+outputs,
+...
+}:
 let
-  inherit (inputs) self;
-  inherit (self.lib) nixosSystem;
-
-  i3 = ../modules/i3;
   sharedModules = [
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        extraSpecialArgs = { inherit inputs self; };
-        users.slwst = ../modules/home;
+        extraSpecialArgs = { inherit inputs outputs; };
+        users.slwst = ../home/slwst;
       };
     }
-  ];
+  ]
+  ++ (builtins.attrValues outputs.nixosModules);
 
 in
 {
   # desktop
-  epsilon = nixosSystem {
+  epsilon = outputs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       { networking.hostName = "epsilon"; }
       ./epsilon
-      i3
+      ../modules/i3
     ]
     ++ sharedModules;
     specialArgs = { inherit inputs; };
   };
 
   # vm
-  nixie = nixosSystem {
+  nixie = outputs.lib.nixosSystem {
     system = "x86_64-linux";
     modules =
       [
         { networking.hostName = "nixie"; }
         ./nixie
-        i3
+        ../modules/i3
       ]
       ++ sharedModules;
     specialArgs = { inherit inputs; };

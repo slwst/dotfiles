@@ -13,6 +13,7 @@
   };
   outputs = { self, nixpkgs, ... } @ inputs:
     let
+      inherit (self) outputs;
       system = "x86_64_linux";
       lib = nixpkgs.lib;
 
@@ -29,6 +30,10 @@
     rec
     {
       inherit lib pkgs;
-      nixosConfigurations = import ./hosts inputs;
+
+      # modules
+      nixosModules = import ./modules/nixos;
+      # nixos configs
+      nixosConfigurations = import ./hosts {inherit inputs outputs;};
     };
 }
