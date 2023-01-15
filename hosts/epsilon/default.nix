@@ -39,6 +39,7 @@
       enable = true;
       package = pkgs.bluez;
     };
+    pulseaudio.enable = false;
   };
 
   services = {
@@ -69,6 +70,7 @@
     };
 
     hardware.nvidia.enable = true;
+    steam.enable = true;
 
     virtualisation = {
       docker = {

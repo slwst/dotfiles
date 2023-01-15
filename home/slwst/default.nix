@@ -11,5 +11,6 @@
 
     ./modules/shell
     ./modules/windowManager
+    ./modules/programs
   ];
 }

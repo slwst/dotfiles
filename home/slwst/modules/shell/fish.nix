@@ -6,8 +6,9 @@
 }: {
 	programs.fish = {
 		enable = true;
-		loginShellInit = ''
-			eval (ssh-agent -c)
-		'';
+		shellAliases = {
+			cat = "bat";
+			ssh = "kitty +kitten ssh";
+		};
 	};
 }

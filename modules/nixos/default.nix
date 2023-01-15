@@ -3,4 +3,5 @@
   hardware = import ./hardware;
   virtualisation = import ./virtualisation;
   windowManager = import ./windowManager;
+  steam = import ./steam;
 }

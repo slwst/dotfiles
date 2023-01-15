@@ -55,5 +55,6 @@ in {
       style = "adwaita";
       platformTheme = "gnome";
     };
+    security.pam.services.lightdm.u2fAuth = true;
   };
 }

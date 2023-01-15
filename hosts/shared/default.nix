@@ -10,7 +10,7 @@
     ./system.nix
     ./nix.nix
     ./network.nix
-    ./openssh.nix
     ./users.nix
+    ./services
   ];
 }
