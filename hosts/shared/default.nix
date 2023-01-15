@@ -11,6 +11,7 @@
     ./nix.nix
     ./network.nix
     ./users.nix
+    ./environment
     ./services
   ];
 }

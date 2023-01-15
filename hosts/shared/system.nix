@@ -22,13 +22,6 @@
     EDITOR = "hx";
     BROWSER = "brave";
   };
-  environment.systemPackages = with pkgs; [
-    cryptsetup
-    git
-    kitty #for terminfo
-    parted
-    vim
-  ];
   security.pam = {
     u2f.enable = true;
     u2f.cue = true;
