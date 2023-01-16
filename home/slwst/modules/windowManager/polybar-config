@@ -16,15 +16,6 @@
 ;
 ;==========================================================
 
-[colors]
-background = #FF2A2E38
-background-alt = #373B41
-foreground = #46D9FF
-primary = #9946D9FF
-secondary = #8ABEB7
-alert = #A54242
-disabled = #707880
-transparent = #002A2E00
 [bar/base]
 height = 30pt
 radius = 20
@@ -33,13 +24,13 @@ offset-y = 0.5%
 
 ; dpi = 96
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.base}
+foreground = ${colors.text}
 
 line-size = 5pt
 
 border-size = 2px
-border-color = ${colors.primary}
+border-color = ${colors.transparent}
 
 padding-left = 0
 padding-right = 1
@@ -47,7 +38,7 @@ padding-right = 1
 module-margin = 1
 
 separator = |
-separator-foreground = ${colors.disabled}
+separator-foreground = ${colors.overlay1}
 
 font-0 = "mononoki Nerd Font Mono:style=Regular:size=16"
 
@@ -67,7 +58,7 @@ width = 100%
 height = 30pt
 override-redirect = false
 wm-restack = i3
-date-foreground = ${colors.foreground}
+date-foreground = ${colors.rosewater}
 padding-right = 2
 modules-right = player-mpris-tail pulseaudio memory cpu date
 padding-left = 2
@@ -77,19 +68,19 @@ modules-left = xworkspaces xwindow
 type = internal/xworkspaces
 
 label-active = %name%
-label-active-background = ${colors.background-alt}
-label-active-underline= ${colors.primary}
+label-active-background = ${colors.surface0}
+label-active-underline= ${colors.lavender}
 label-active-padding = 1
 
 label-occupied = %name%
 label-occupied-padding = 1
 
 label-urgent = %name%
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.red}
 label-urgent-padding = 1
 
 label-empty = %name%
-label-empty-foreground = ${colors.disabled}
+label-empty-foreground = ${colors.transparent}
 label-empty-padding = 1
 
 [module/xwindow]
@@ -105,19 +96,19 @@ mount-0 = /
 label-mounted = %{F#F0C674}%mountpoint%%{F-} %percentage_used%%
 
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.disabled}
+label-unmounted-foreground = ${colors.transparent}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 format-volume-prefix = "VOL "
-format-volume-prefix-foreground = ${colors.primary}
+format-volume-prefix-foreground = ${colors.peach}
 format-volume = <label-volume>
 
 label-volume = %percentage%%
 
 label-muted = muted
-label-muted-foreground = ${colors.disabled}
+label-muted-foreground = ${colors.transparent}
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -135,14 +126,14 @@ label-indicator-background = ${colors.secondary}
 type = internal/memory
 interval = 2
 format-prefix = "RAM "
-format-prefix-foreground = ${colors.primary}
+format-prefix-foreground = ${colors.mauve}
 label = %percentage_used:2%%
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = "CPU "
-format-prefix-foreground = ${colors.primary}
+format-prefix-foreground = ${colors.flamingo}
 label = %percentage:2%%
 
 [network-base]

@@ -2,6 +2,12 @@
 
 
 
+## Fresh Install
+
+### cli
+* make bat caches for external theme support
+    - `bat cache --build`
+
 
 ### Yubikey
 After a fresh install, do the following to allow for yk login

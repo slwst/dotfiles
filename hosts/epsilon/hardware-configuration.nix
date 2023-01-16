@@ -14,7 +14,16 @@
     allowDiscards = true;
   };
 
-  boot.initrd.availableKernelModules = [ "vmd" "xhci_pci" "ahci" "nvme" "thunderbolt" "usbhid" "usb_storage" "sd_mod" ] ++ config.boot.initrd.luks.cryptoModules;
+  boot.initrd.availableKernelModules = [
+    "ahci"
+    "nvme"
+    "sd_mod"
+    "thunderbolt"
+    "usbhid"
+    "usb_storage"
+    "vmd"
+    "xhci_pci"
+    ] ++ config.boot.initrd.luks.cryptoModules;
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];

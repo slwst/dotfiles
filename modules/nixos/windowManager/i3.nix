@@ -38,6 +38,7 @@ in {
       desktopManager.xterm.enable = false;
       displayManager.lightdm.enable = true;
       displayManager.defaultSession = "none+i3";
+      desktopManager.runXdgAutostartIfNone = true;
       # TODO move non-default config items to user modules
       windowManager.i3 = {
         enable = true;

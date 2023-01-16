@@ -39,6 +39,8 @@
       enable = true;
       package = pkgs.bluez;
     };
+    i2c.enable = true;
+
     pulseaudio.enable = false;
   };
 
@@ -47,6 +49,10 @@
     acpid.enable = true;
     thermald.enable = true;
     upower.enable = true;
+    hardware.openrgb = {
+      enable = true;
+      motherboard = "intel";
+    };
   };
 
   environment = {
