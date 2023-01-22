@@ -7,6 +7,7 @@
     jq
     kitty #for terminfo
     lm_sensors
+    lz4
     nvme-cli
     parted
     unrar

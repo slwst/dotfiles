@@ -34,6 +34,15 @@ in {
         };
       };
 
+      config = lib.mkAfter ''
+      Section "InputClass"
+       Identifier   "ds-touchpad"
+       Driver       "libinput"
+       MatchProduct "Wireless Controller Touchpad"
+       Option       "Ignore" "True"
+      EndSection
+      '';
+
 
       desktopManager.xterm.enable = false;
       displayManager.lightdm.enable = true;

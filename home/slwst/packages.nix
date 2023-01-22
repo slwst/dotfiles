@@ -23,6 +23,7 @@ pkgs
     imagemagick
     jq
     lm_sensors
+    lutris
     mpv
     pamixer
     pavucontrol

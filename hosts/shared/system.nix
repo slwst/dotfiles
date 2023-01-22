@@ -22,15 +22,6 @@
     EDITOR = "hx";
     BROWSER = "brave";
   };
-  security.pam = {
-    u2f.enable = true;
-    u2f.cue = true;
-    services = {
-      login.u2fAuth = true;
-      sudo.u2fAuth = true;
-    };
-  };
-
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
 

@@ -15,4 +15,10 @@
         sha256 = "bUbSgMg/sa2faeEUZo80GNmhOX3wn2jLzfA9neF8ERA=";
       } + "/themes/frappe.ini");
   };
+	systemd.user.targets.tray = {
+		Unit = {
+			Description = "Home Manager System Tray";
+			Requires = [ "graphical-session-pre.target" ];
+		};
+	};
 }
