@@ -37,6 +37,7 @@ in
     ./gpg.nix
     ./nix.nix
     ./ssh.nix
+    ./starship.nix
   ];
   services = {
     udiskie.enable = true;
