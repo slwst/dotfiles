@@ -66,5 +66,8 @@ in {
       platformTheme = "gnome";
     };
     security.pam.services.lightdm.u2fAuth = true;
+    environment.systemPackages = with pkgs; [
+      feh
+    ];
   };
 }
