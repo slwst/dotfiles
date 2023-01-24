@@ -13,7 +13,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-
     # Load modules on boot
     boot.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
 
@@ -22,6 +21,7 @@ in {
     environment.variables = {
       GBM_BACKEND = "nvidia-drm";
       LIBVA_DRIVER_NAME = "nvidia";
+      VDPAU_DRIVER = "va_gl";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };
 

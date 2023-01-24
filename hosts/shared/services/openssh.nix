@@ -62,4 +62,10 @@
       "192.168.0.0/16"
     ];
   };
+
+  # enable mosh
+  programs.mosh = {
+    enable = true;
+    withUtempter = true;
+  };
 }

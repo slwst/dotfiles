@@ -12,6 +12,7 @@ pkgs
     bandwhich
     brave
     cached-nix-shell
+    cinnamon.nemo
     coreutils
     dconf
     fd
@@ -37,6 +38,7 @@ pkgs
     tree
     ttyper
     unzip
+    viu
     xdg-utils
     xfce.thunar
   ];
