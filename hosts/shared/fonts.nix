@@ -5,6 +5,8 @@
   fonts = {
     fonts = with pkgs; [
       (nerdfonts.override { fonts = [ "Mononoki" ]; })
+      inter
+      (google-fonts.override { fonts = [ "Nunito" ]; }).out
       noto-fonts
       noto-fonts-emoji
     ];

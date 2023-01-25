@@ -7,6 +7,11 @@
         accents = ["teal"];
       };
     };
+
+    font = {
+      name = "Nunito";
+      size = 13;
+    };
     gtk3.extraConfig = {
       gtk-xft-antialias = 1;
       gtk-xft-hinting = 1;
@@ -23,10 +28,10 @@
 
   home.pointerCursor = {
     name = "Catppuccin-Frappe-Dark";
-    package = pkgs.catppuccin-cursors;
+    package = pkgs.catppuccin-cursors.frappeDark;
     size = 16;
+    gtk.enable = true;
   };
-  home.pointerCursor.gtk.enable = true;
 
   home.sessionVariables = {
     GTK_THEME = "Catppuccin-Frappe-Standard-Teal-Dark";

@@ -49,22 +49,27 @@
         format = "[[ ♥ $time ](bg:#4FBDBA fg:#000000)]($style)";
       };
       golang = {
-        symbol = "";
+        symbol = " ";
         style = "bg:#35858B";
         format = "[[ $symbol ($version) ](bg:#35858B)]($style)";
       };
       nodejs = {
-        symbol = "";
+        symbol = " ";
         style = "bg:#35858B";
         format = "[[ $symbol ($version) ](bg:#35858B)]($style)";
       };
       rust = {
-        symbol = "";
+        symbol = " ";
         style = "bg:#35858B";
         format = "[[ $symbol ($version) ](bg:#35858B)]($style)";
       };
       kubernetes = {
-        symbol = "☸";
+        symbol = "☸ ";
+        style = "bg:#35858B";
+        format = "[[ $symbol ($version) ](bg:#35858B)]($style)";
+      };
+      nix_shell = {
+        symbol = " ";
         style = "bg:#35858B";
         format = "[[ $symbol ($version) ](bg:#35858B)]($style)";
       };

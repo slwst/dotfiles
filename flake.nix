@@ -14,7 +14,7 @@
   outputs = { self, nixpkgs, ... } @ inputs:
     let
       inherit (self) outputs;
-      system = "x86_64_linux";
+      system = "x86_64-linux";
       lib = nixpkgs.lib;
 
 
@@ -35,5 +35,18 @@
       nixosModules = import ./modules/nixos;
       # nixos configs
       nixosConfigurations = import ./hosts {inherit inputs outputs;};
+
+      # dev shell for (direnv)
+      devShells.${system}.default = pkgs.mkShell {
+        packages = with pkgs; [
+          alejandra
+          git
+          nix-prefetch-github
+        ];
+        name = "dotfiles";
+      };
+
+      # use alejandra as formatter
+      formatter.${system} = pkgs.${system}.alejandra;
     };
 }
