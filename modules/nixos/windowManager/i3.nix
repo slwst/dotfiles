@@ -43,11 +43,21 @@ in {
       EndSection
       '';
 
+      displayManager = {
+        defaultSession = "none+i3";
+        lightdm = {
+          enable = true;
+          greeters.gtk = {
+            enable = true;
+            cursorTheme = {
+              name = "Catppuccin-Frappe-Dark";
+              package = pkgs.catppuccin-cursors.frappeDark;
+              size = 48;
+            };
+          };
+        };
+      };
 
-      desktopManager.xterm.enable = false;
-      displayManager.lightdm.enable = true;
-      displayManager.defaultSession = "none+i3";
-      desktopManager.runXdgAutostartIfNone = true;
       # TODO move non-default config items to user modules
       windowManager.i3 = {
         enable = true;
@@ -68,6 +78,13 @@ in {
     security.pam.services.lightdm.u2fAuth = true;
     environment.systemPackages = with pkgs; [
       feh
+      gtk2
+      gtk3
+      gtk4
+      catppuccin-cursors.frappeDark
+      (catppuccin-gtk.override {
+        accents = ["teal"];
+      })
     ];
   };
 }

@@ -14,8 +14,6 @@
       gnome.gnome-settings-daemon
       yubikey-personalization
     ];
-    udisks2.enable = true;
-    pcscd.enable = true;
   };
 
   environment.variables = {

@@ -71,7 +71,9 @@
       nix_shell = {
         symbol = " ";
         style = "bg:#35858B";
-        format = "[[ $symbol ($version) ](bg:#35858B)]($style)";
+        format = "[[ $symbol$state( \($name\))](bg:#35858B)]($style)";
+        impure_msg = "impure";
+        pure_msg = "pure";
       };
     };
   };

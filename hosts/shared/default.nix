@@ -15,4 +15,19 @@
     ./security
     ./services
   ];
+
+  programs = {
+    dconf.enable = true;
+    nm-applet.enable = true;
+    seahorse.enable = true;
+  };
+
+  services = {
+    blueman.enable = true;
+    fstrim.enable = true;
+    fwupd.enable = true;
+    gvfs.enable = true;
+    pcscd.enable = true;
+    udisks2.enable = true;
+  };
 }

@@ -24,13 +24,19 @@
       gtk-xft-hintstyle="hintslight"
       gtk-xft-rgba="rgb"
     '';
+
+    cursorTheme = {
+      package = pkgs.catppuccin-cursors.frappeDark;
+      name = "Catppuccin-Frappe-Dark";
+    };
   };
 
   home.pointerCursor = {
     name = "Catppuccin-Frappe-Dark";
     package = pkgs.catppuccin-cursors.frappeDark;
-    size = 16;
+    size = 48;
     gtk.enable = true;
+    x11.enable = true;
   };
 
   home.sessionVariables = {
@@ -40,6 +46,7 @@
   home.packages = with pkgs; [
     gnome.gnome-themes-extra
     gtk-engine-murrine
+    gtk_engines
   ];
 
 }
