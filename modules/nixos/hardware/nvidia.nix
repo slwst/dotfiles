@@ -14,7 +14,7 @@ in {
 
   config = mkIf cfg.enable {
     # Load modules on boot
-    boot.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
+    boot.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" "i2c-nvidia_gpu"];
 
     services.xserver.videoDrivers = ["nvidia"];
 

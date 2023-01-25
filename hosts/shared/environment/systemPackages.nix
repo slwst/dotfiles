@@ -7,6 +7,7 @@
     jq
     kitty #for terminfo
     lm_sensors
+    pciutils
     lz4
     nvme-cli
     parted
