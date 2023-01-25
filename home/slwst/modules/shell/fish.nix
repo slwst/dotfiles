@@ -14,6 +14,7 @@
 		shellAliases = {
 			cat = "bat";
 			ssh = "kitty +kitten ssh";
+			newbg = "systemctl --user start feh-random-bg";
 		};
 		interactiveShellInit = ''
 			# enable transient prompt with starship

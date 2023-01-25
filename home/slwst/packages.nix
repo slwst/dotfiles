@@ -23,6 +23,7 @@ pkgs
     helix
     imagemagick
     jq
+    license-generator
     lm_sensors
     lutris
     mpv
