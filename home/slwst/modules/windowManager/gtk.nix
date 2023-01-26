@@ -27,14 +27,14 @@
 
     cursorTheme = {
       package = pkgs.catppuccin-cursors.frappeDark;
-      name = "Catppuccin-Frappe-Dark";
+      name = "Catppuccin-Frappe-Dark-Cursors";
     };
   };
 
   home.pointerCursor = {
-    name = "Catppuccin-Frappe-Dark";
+    name = "Catppuccin-Frappe-Dark-Cursors";
     package = pkgs.catppuccin-cursors.frappeDark;
-    size = 48;
+    size = 16;
     gtk.enable = true;
     x11.enable = true;
   };

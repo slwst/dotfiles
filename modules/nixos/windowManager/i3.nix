@@ -50,9 +50,9 @@ in {
           greeters.gtk = {
             enable = true;
             cursorTheme = {
-              name = "Catppuccin-Frappe-Dark";
+              name = "Catppuccin-Frappe-Dark-Cursors";
               package = pkgs.catppuccin-cursors.frappeDark;
-              size = 48;
+              size = 16;
             };
           };
         };
