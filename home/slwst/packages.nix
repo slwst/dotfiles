@@ -29,6 +29,7 @@ pkgs
     mpv
     pamixer
     pavucontrol
+    playerctl
     protonup
     pulseaudio
     psmisc

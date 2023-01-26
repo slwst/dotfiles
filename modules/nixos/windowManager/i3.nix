@@ -59,10 +59,7 @@ in {
       };
 
       # TODO move non-default config items to user modules
-      windowManager.i3 = {
-        enable = true;
-        configFile = ./i3-config;
-      };
+      windowManager.i3.enable = true;
     };
     xdg.portal = {
       enable = true;
