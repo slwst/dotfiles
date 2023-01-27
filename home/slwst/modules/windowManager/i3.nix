@@ -1,4 +1,4 @@
-{pkgs, lib, ...}: {
+{pkgs, lib, config, ...}: {
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
@@ -86,9 +86,21 @@
         "${modifier}+Shift+x" = "exec systemctl suspend"; 
 
         # Misc
-        # resize mode
+
+        # Screenshots
+        "Print" = "exec --no-startup-id maim ${config.xdg.userDirs.pictures}/screenshot-$(date +%Y%m%d-%H%M%S).png";
+        "${modifier}+Print" = "exec --no-startup-id maim --window $(xdotool getactivewindow) ${config.xdg.userDirs.pictures}/screenshot-$(date +%Y%m%d-%H%M%S).png";
+        "Shift+Print" = "exec --no-startup-id maim --select ${config.xdg.userDirs.pictures}/screenshot-$(date +%Y%m%d-%H%M%S).png";
+
+        # Screenshots (Clipboard)
+        "Ctrl+Print" = "exec --no-startup-id maim | xclip -selection clipboard -t image/png";
+        "Ctrl+${modifier}+Print" = "exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png";
+        "Ctrl+Shift+Print" = "exec --no-startup-id maim --select | xclip -selection clipboard -t image/png";
+        
+        # Resize Mode
         "${modifier}+r" = "mode resize";
-        # blink window with focus
+
+        # Blink window with focus
         "${modifier}+z" = "exec i3-msg border pixel 1";
         "--release ${modifier}+z" = "exec i3-msg border pixel 0";
       };
@@ -108,5 +120,12 @@
         };
       };
     };
+  };
+  home = {
+    packages = with pkgs; [
+      maim
+      xclip
+      xdotool
+    ];
   };
 }
