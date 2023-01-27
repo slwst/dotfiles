@@ -10,6 +10,9 @@
 			gitignore = "curl -sL https://gitignore.io/api/$argv";
 			starship_transient_prompt_func = "starship module character";
 			starship_transient_rprompt_func = "starship module time";
+			dots = "hx ~/.dotfiles";
+			nrs = "sudo nixos-rebuild switch --flake ~/.dotfiles#";
+			nrsi = "sudo nixos-rebuild switch --flake ~/.dotfiles# --impure";
 		};
 		shellAliases = {
 			cat = "bat";
