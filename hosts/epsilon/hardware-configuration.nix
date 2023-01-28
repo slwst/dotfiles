@@ -58,6 +58,20 @@
     fsType = "vfat";
   };
 
+  services.xserver = {
+      screenSection = ''
+        Option "metamodes" "DP-0: 3440x1440_100 {ForceFullCompositionPipeline=On}, HDMI-1: nvidia-auto-select {ForceFullCompositionPipeline=On}"
+        Option "AllowIndirectGXProtocol" "off"
+        Option "TripleBuffer" "on"
+      '';
+      xrandrHeads = [ 
+        {
+          output = "DP-0";
+          primary = true;
+        }
+      ];
+  };
+
   swapDevices = [
     {device = "/dev/disk/by-label/swap";}
   ];

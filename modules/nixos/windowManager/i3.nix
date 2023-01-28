@@ -47,6 +47,13 @@ in {
         defaultSession = "none+i3";
         lightdm = {
           enable = true;
+          background = builtins.toPath (pkgs.fetchFromGitHub
+          {
+            owner = "catppuccin";
+            repo = "wallpapers";
+            rev = "0cea4a28451851a637762dec07ec4fb2bfebc421";
+            sha256 = "B2ncT2qPc0inHHcO1BAZW5of+K0sIdtPcdpqcPUbKBo=";
+          } + "/os/nix-black-4k.png");
           greeters.gtk = {
             enable = true;
             cursorTheme = {

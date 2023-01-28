@@ -7,36 +7,37 @@
       terminal = "kitty";
       defaultWorkspace = "workspace number 1";
       assigns = {
-        "0: term" = [{ class = "^kitty$"; }];
+        "0: term" = [{ class = "^kitty-primary$"; }];
         "1: web" = [{ window_role = "^browser$"; }];
-        "2: comms" = [{ class = "^discord$"; } { class = "^session$"; }];
+        "2: comms" = [{ class = "^discord$"; } { class = "^Session$"; }];
         "8: music" = [{ class = "^Spotify$"; }];
+        "9: sysmon" = [{ class = "^kitty-btm$"; }];
       };
 
       workspaceOutputAssign = [
         {
           workspace = "0: term";
-          output = "DP-0";
+          output = "primary";
         }
         {
           workspace = "1: web";
-          output = "HDMI-1";
+          output = "nonprimary";
         }
         {
           workspace = "2: comms";
-          output = "HDMI-1";
+          output = "nonprimary";
         }
         {
           workspace = "7: gaming";
-          output = "DP-0";
+          output = "primary";
         }
         {
           workspace = "8: music";
-          output = "HDMI-1";
+          output = "nonprimary";
         }
         {
-          workspace = "9: mail";
-          output = "HDMI-1";
+          workspace = "9: sysmon";
+          output = "nonprimary";
         }
       ];
       bars = [];
@@ -68,9 +69,10 @@
       };
 
       startup = [
-        { command = "kitty"; }
+        { command = "kitty --class=kitty-primary"; }
         { command = "brave"; }
         { command = "spotifywm"; }
+        { command = "kitty --class=kitty-btm btm"; }
       ];
 
       keybindings = lib.mkOptionDefault {
@@ -121,9 +123,10 @@
         "${modifier}+0" = "workspace 0: term";
         "${modifier}+1" = "workspace 1: web";
         "${modifier}+2" = "workspace 2: comms";
+        "${modifier}+3" = "workspace 3: mail";
         "${modifier}+7" = "workspace 7: gaming";
         "${modifier}+8" = "workspace 8: music";
-        "${modifier}+9" = "workspace 9: mail";
+        "${modifier}+9" = "workspace 9: sysmon";
         
 
         # Screenshots
