@@ -10,6 +10,7 @@
         "0: term" = [{ class = "^kitty-primary$"; }];
         "1: web" = [{ window_role = "^browser$"; }];
         "2: comms" = [{ class = "^discord$"; } { class = "^Session$"; }];
+        "7: gaming" = [{ class = "^Steam$"; }];
         "8: music" = [{ class = "^Spotify$"; }];
         "9: sysmon" = [{ class = "^kitty-btm$"; }];
       };
