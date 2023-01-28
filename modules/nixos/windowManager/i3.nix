@@ -54,6 +54,12 @@ in {
               package = pkgs.catppuccin-cursors.frappeDark;
               size = 16;
             };
+            iconTheme = {
+             name = "Papirus-Dark"; 
+            };
+            theme = {
+              name = "Catppuccin-Frappe-Standard-Teal-Dark";
+            };
           };
         };
       };
@@ -74,14 +80,13 @@ in {
     };
     security.pam.services.lightdm.u2fAuth = true;
     environment.systemPackages = with pkgs; [
+      catppuccin-cursors.frappeDark
+      (catppuccin-gtk.override { accents = ["teal"]; })
       feh
       gtk2
       gtk3
       gtk4
-      catppuccin-cursors.frappeDark
-      (catppuccin-gtk.override {
-        accents = ["teal"];
-      })
+      papirus-icon-theme
     ];
   };
 }

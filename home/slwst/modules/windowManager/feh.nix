@@ -10,7 +10,7 @@
 
   systemd.user.services.feh-random-bg = {
     Unit.Description = "Switches to a random wallpaper";
-    Install.WantedBy = [ "tray.target" ];
+#    Install.WantedBy = [ "tray.target" ];
     Service = {
       Type = "oneshot";
       #[TODO] source the wallpaper dir from xdg
@@ -29,4 +29,9 @@
       Unit = "feh-random-bg.service";
     };
   };
-}
+
+  # startup w/ i3
+  xsession.windowManager.i3.config.startup = [
+    { command = "systemctl --user restart feh-random-bg"; always = true; notification = false; }
+  ];
+  }

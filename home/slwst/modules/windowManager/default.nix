@@ -1,6 +1,6 @@
 {
   imports = [
-#    ./dunst.nix
+    ./dunst.nix
     ./feh.nix
     ./gtk.nix
     ./i3.nix

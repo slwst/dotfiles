@@ -36,17 +36,9 @@ in {
   home.packages = [volume];
   services.dunst = {
     enable = true;
-    package = pkgs.dunst.overrideAttrs (oldAttrs: {
-      src = pkgs.fetchFromGitHub {
-        owner = "k-vernooy";
-        repo = "dunst";
-        rev = "61567d58855ba872f8237861ddcd786d03dd2631";
-        sha256 = "ttaaomjb3CclZG9JPdzDBj5XXlqRaKGPBY3ahFofqVM=";
-      };
-    });
     iconTheme = {
-      package = self.packages.${pkgs.system}.catppuccin-folders;
-      name = "Papirus";
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
     settings = {
       global = {
@@ -55,7 +47,7 @@ in {
         width = 220;
         height = 220;
         offset = "0x15";
-        font = "mononoki 16";
+        font = "Nunito 16";
         corner_radius = 10;
         origin = "top-center";
         notification_limit = 3;
@@ -94,4 +86,9 @@ in {
       };
     };
   };
+
+  # startup w/ i3
+  xsession.windowManager.i3.config.startup = [
+    { command = "systemctl --user restart dunst"; always = true; notification = true; }
+  ];
 }

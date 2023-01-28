@@ -5,6 +5,40 @@
     config = rec {
       modifier = "Mod4";
       terminal = "kitty";
+      defaultWorkspace = "workspace number 1";
+      assigns = {
+        "0: term" = [{ class = "^kitty$"; }];
+        "1: web" = [{ window_role = "^browser$"; }];
+        "2: comms" = [{ class = "^discord$"; } { class = "^session$"; }];
+        "8: music" = [{ class = "^Spotify$"; }];
+      };
+
+      workspaceOutputAssign = [
+        {
+          workspace = "0: term";
+          output = "DP-0";
+        }
+        {
+          workspace = "1: web";
+          output = "HDMI-1";
+        }
+        {
+          workspace = "2: comms";
+          output = "HDMI-1";
+        }
+        {
+          workspace = "7: gaming";
+          output = "DP-0";
+        }
+        {
+          workspace = "8: music";
+          output = "HDMI-1";
+        }
+        {
+          workspace = "9: mail";
+          output = "HDMI-1";
+        }
+      ];
       bars = [];
       fonts = {
         names = [ "mononoki Nerd Font" ];
@@ -26,10 +60,18 @@
           {
             class = "Pavucontrol";
           }
+          {
+            title = "NVIDIA Settings";
+          }
         ];
         modifier = "${modifier}";
       };
 
+      startup = [
+        { command = "kitty"; }
+        { command = "brave"; }
+        { command = "spotifywm"; }
+      ];
 
       keybindings = lib.mkOptionDefault {
         # Movement
@@ -52,16 +94,6 @@
         "--release ${modifier}+Down" = "exec i3-msg border pixel 0";
         "--release ${modifier}+Up" = "exec i3-msg border pixel 0";
         "--release ${modifier}+Right" = "exec i3-msg border pixel 0";
-
-        # Container Split
-        "${modifier}+h" = "split h";
-        "${modifier}+v" = "split v";
-        "${modifier}+f" = "fullscreen toggle";
-
-        # Container Layout
-        "${modifier}+s" = "layout stacking";
-        "${modifier}+w" = "layout tabbed";
-        "${modifier}+e" = "layout toggle split";
         
         # Media Keys
         # Volume
@@ -85,21 +117,24 @@
         "${modifier}+b" = "exec brave";
         "${modifier}+Shift+x" = "exec systemctl suspend"; 
 
-        # Misc
+        # Workspaces
+        "${modifier}+0" = "workspace 0: term";
+        "${modifier}+1" = "workspace 1: web";
+        "${modifier}+2" = "workspace 2: comms";
+        "${modifier}+7" = "workspace 7: gaming";
+        "${modifier}+8" = "workspace 8: music";
+        "${modifier}+9" = "workspace 9: mail";
+        
 
         # Screenshots
         "Print" = "exec --no-startup-id maim ${config.xdg.userDirs.pictures}/screenshot-$(date +%Y%m%d-%H%M%S).png";
         "${modifier}+Print" = "exec --no-startup-id maim --window $(xdotool getactivewindow) ${config.xdg.userDirs.pictures}/screenshot-$(date +%Y%m%d-%H%M%S).png";
         "Shift+Print" = "exec --no-startup-id maim --select ${config.xdg.userDirs.pictures}/screenshot-$(date +%Y%m%d-%H%M%S).png";
-
         # Screenshots (Clipboard)
         "Ctrl+Print" = "exec --no-startup-id maim | xclip -selection clipboard -t image/png";
         "Ctrl+${modifier}+Print" = "exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png";
         "Ctrl+Shift+Print" = "exec --no-startup-id maim --select | xclip -selection clipboard -t image/png";
         
-        # Resize Mode
-        "${modifier}+r" = "mode resize";
-
         # Blink window with focus
         "${modifier}+z" = "exec i3-msg border pixel 1";
         "--release ${modifier}+z" = "exec i3-msg border pixel 0";
