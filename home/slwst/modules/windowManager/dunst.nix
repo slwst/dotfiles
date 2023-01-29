@@ -44,7 +44,7 @@ in {
       global = {
         frame_color = "#f4b8e4";
         separator_color = "#8CAAEE";
-        width = 220;
+        width = 440;
         height = 220;
         offset = "0x15";
         font = "Nunito 16";
@@ -59,7 +59,7 @@ in {
         history_length = 20;
         show_age_threshold = 60;
         ellipsize = "middle";
-        padding = 10;
+        padding = 6;
         always_run_script = true;
         frame_width = 3;
         transparency = 10;

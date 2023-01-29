@@ -4,7 +4,7 @@
   ...
 }: {
   services.mpd = {
-    enable = true;
+    enable = false;
     musicDirectory = "/home/slwst/music";
     network = {
       listenAddress = "any";
@@ -33,7 +33,7 @@
   home.packages = with pkgs; [mpc_cli];
 
   programs.ncmpcpp = {
-    enable = true;
+    enable = false;
     package = pkgs.ncmpcpp;
     settings = {
       ncmpcpp_directory = "/home/slwst/.config/ncmpcpp";

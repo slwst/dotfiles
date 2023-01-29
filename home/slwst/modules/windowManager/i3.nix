@@ -65,6 +65,9 @@
           {
             title = "NVIDIA Settings";
           }
+          {
+            class = ".blueman-manager-wrapped";
+          }
         ];
         modifier = "${modifier}";
       };

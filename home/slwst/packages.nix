@@ -27,6 +27,7 @@ pkgs
     lm_sensors
     lutris
     mpv
+    neo
     pamixer
     pavucontrol
     playerctl
