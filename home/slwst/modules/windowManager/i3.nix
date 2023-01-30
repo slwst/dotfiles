@@ -68,11 +68,15 @@
           {
             class = ".blueman-manager-wrapped";
           }
+          {
+            class = "Gucharmap";
+          }
         ];
         modifier = "${modifier}";
       };
 
       startup = [
+        { command = "touchegg"; }
         { command = "kitty --class=kitty-primary"; }
         { command = "brave"; }
         { command = "spotifywm"; }

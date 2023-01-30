@@ -20,6 +20,7 @@ pkgs
     gcc
     glib
     glxinfo
+    gnome.gucharmap
     helix
     imagemagick
     jq

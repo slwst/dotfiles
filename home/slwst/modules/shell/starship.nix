@@ -25,6 +25,7 @@
       };
       hostname = {
         ssh_only = true;
+        ssh_symbol = " ";
         format = "[@ $hostname $ssh_symbol]($style)";
         style = "bg:#5534a5";
       };

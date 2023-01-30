@@ -28,6 +28,7 @@
     fwupd.enable = true;
     gvfs.enable = true;
     pcscd.enable = true;
+    touchegg.enable = true;
     udisks2.enable = true;
   };
 }

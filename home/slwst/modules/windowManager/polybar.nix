@@ -61,10 +61,10 @@
       "module/i3" = {
         type = "internal/i3";
         pin-workspaces = true;
-        show-urgent = true;
+        show-urgent = false;
         strip-wsnumbers = true;
         index-sort = true;
-        enable-click = false;
+        enable-click = true;
         enable-scroll = false;
 
         label-focused-foreground = "\${colors.mauve}";
@@ -102,13 +102,6 @@
           # See more attributes here: https://github.com/altdesktop/playerctl/#printing-properties-and-metadata
           FORMAT="{{ title }} - {{ artist }}"
 
-          # Sends $2 as message to all polybar PIDs that are part of $1
-          update_hooks() {
-              while IFS= read -r id
-              do
-                  ${pkgs.polybar}/bin/polybar-msg -p "$id" hook spotify-play-pause $2 1>/dev/null 2>&1
-              done < <(echo "$1")
-          }
 
           PLAYERCTL_STATUS=$(${pkgs.playerctl}/bin/playerctl --player=$PLAYER status 2>/dev/null)
           EXIT_CODE=$?
@@ -125,12 +118,10 @@
               if [ "$STATUS" = "Stopped" ]; then
                   echo "No music is playing"
               elif [ "$STATUS" = "Paused"  ]; then
-                  update_hooks "$PARENT_BAR_PID" 2
                   ${pkgs.playerctl}/bin/playerctl --player=$PLAYER metadata --format "$FORMAT"
               elif [ "$STATUS" = "No player is running"  ]; then
-                  echo "$STATUS"
+                  echo ""
               else
-                  update_hooks "$PARENT_BAR_PID" 1
                   ${pkgs.playerctl}/bin/playerctl --player=$PLAYER metadata --format "$FORMAT"
               fi
           fi
@@ -142,18 +133,14 @@
         label-active = "%name%";
         label-active-background = "\${colors.surface0}";
         label-active-underline = "\${colors.lavender}";
-        label-active-padding = 1;
 
         label-occupied = "%name%";
-        label-occupied-padding = 1;
 
         label-urgent = "%name%";
         label-urgent-background = "\${colors.red}";
-        label-urgent-padding = 1;
 
         label-empty = "%name%";
         label-empty-foreground = "\${colors.transparent}";
-        label-empty-padding = 1;
       };
       "module/xwindow" = {
         type = "internal/xwindow";
