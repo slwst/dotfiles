@@ -1,4 +1,9 @@
-{pkgs, lib, config, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
@@ -7,12 +12,12 @@
       terminal = "kitty";
       defaultWorkspace = "workspace number 1";
       assigns = {
-        "0: term" = [{ class = "^kitty-primary$"; }];
-        "1: web" = [{ window_role = "^browser$"; }];
-        "2: comms" = [{ class = "^discord$"; } { class = "^Session$"; }];
-        "7: gaming" = [{ class = "^Steam$"; }];
-        "8: music" = [{ class = "^Spotify$"; }];
-        "9: sysmon" = [{ class = "^kitty-btm$"; }];
+        "0: term" = [{class = "^kitty-primary$";}];
+        "1: web" = [{window_role = "^browser$";}];
+        "2: comms" = [{class = "^discord$";} {class = "^Session$";}];
+        "7: gaming" = [{class = "^Steam$";}];
+        "8: music" = [{class = "^Spotify$";}];
+        "9: sysmon" = [{class = "^kitty-btm$";}];
       };
 
       workspaceOutputAssign = [
@@ -43,10 +48,10 @@
       ];
       bars = [];
       fonts = {
-        names = [ "mononoki Nerd Font" ];
+        names = ["mononoki Nerd Font"];
         size = 14.0;
       };
-      
+
       gaps = {
         inner = 5;
         outer = 5;
@@ -76,11 +81,11 @@
       };
 
       startup = [
-        { command = "touchegg"; }
-        { command = "kitty --class=kitty-primary"; }
-        { command = "brave"; }
-        { command = "spotifywm"; }
-        { command = "kitty --class=kitty-btm btm"; }
+        {command = "touchegg";}
+        {command = "kitty --class=kitty-primary";}
+        {command = "brave";}
+        {command = "spotifywm";}
+        {command = "kitty --class=kitty-btm btm";}
       ];
 
       keybindings = lib.mkOptionDefault {
@@ -104,13 +109,13 @@
         "--release ${modifier}+Down" = "exec i3-msg border pixel 0";
         "--release ${modifier}+Up" = "exec i3-msg border pixel 0";
         "--release ${modifier}+Right" = "exec i3-msg border pixel 0";
-        
+
         # Media Keys
         # Volume
         "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
         "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
-        "XF86AudioMicMute"= "exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+        "XF86AudioMicMute" = "exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle";
         # Player Controls
         "XF86AudioPlay" = "exec playerctl -a play-pause";
         "XF86AudioPause" = "exec playerctl -a play-pause";
@@ -125,7 +130,7 @@
         "${modifier}+d" = "exec rofi -modi drun -show drun";
         "${modifier}+Shift+d" = "exec rofi -show window";
         "${modifier}+b" = "exec brave";
-        "${modifier}+Shift+x" = "exec systemctl suspend"; 
+        "${modifier}+Shift+x" = "exec systemctl suspend";
 
         # Workspaces
         "${modifier}+0" = "workspace 0: term";
@@ -135,7 +140,6 @@
         "${modifier}+7" = "workspace 7: gaming";
         "${modifier}+8" = "workspace 8: music";
         "${modifier}+9" = "workspace 9: sysmon";
-        
 
         # Screenshots
         "Print" = "exec --no-startup-id maim ${config.xdg.userDirs.pictures}/screenshot-$(date +%Y%m%d-%H%M%S).png";
@@ -145,7 +149,7 @@
         "Ctrl+Print" = "exec --no-startup-id maim | xclip -selection clipboard -t image/png";
         "Ctrl+${modifier}+Print" = "exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png";
         "Ctrl+Shift+Print" = "exec --no-startup-id maim --select | xclip -selection clipboard -t image/png";
-        
+
         # Blink window with focus
         "${modifier}+z" = "exec i3-msg border pixel 1";
         "--release ${modifier}+z" = "exec i3-msg border pixel 0";

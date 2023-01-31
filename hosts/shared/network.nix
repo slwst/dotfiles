@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }: {
   networking = {
     networkmanager = {
@@ -9,7 +10,7 @@
     };
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 80 ];
+      allowedTCPPorts = [22 80 8080];
       allowPing = true;
       logReversePathDrops = true;
     };

@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
@@ -11,7 +8,7 @@
       line_break.disabled = false;
       cmd_duration.disabled = false;
 
-      format = let 
+      format = let
         activeModules = "$golang$kubernetes$nodejs$rust$nix_shell";
       in ''
         [](#5534a5)$username$hostname[](bg:#A85CF9 fg:#5534a5)$directory[](fg:#A85CF9 bg:#072227)$git_branch$git_status[](fg:#072227 bg:#35858B)[${activeModules}](bg:#35858B)[](fg:#35858B bg:#4FBDBA)$time[ ](fg:#4FBDBA)

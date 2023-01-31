@@ -35,8 +35,8 @@
             {
               ratio = 1;
               child = [
-                { type = "temp"; }
-                { type = "disk"; }
+                {type = "temp";}
+                {type = "disk";}
               ];
             }
           ];

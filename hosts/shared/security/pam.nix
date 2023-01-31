@@ -21,5 +21,4 @@
       sudo.u2fAuth = true;
     };
   };
-
 }

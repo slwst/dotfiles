@@ -1,10 +1,11 @@
-{ pkgs
-, lib
-, config
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  ...
 }:
 with lib; let
-  browser = [ "brave.desktop" ];
+  browser = ["brave.desktop"];
 
   associations = {
     "text/html" = browser;
@@ -20,16 +21,15 @@ with lib; let
     "application/x-extension-xhtml" = browser;
     "application/x-extension-xht" = browser;
 
-    "audio/*" = [ "mpv.desktop" ];
-    "video/*" = [ "mpv.dekstop" ];
-    "image/*" = [ "imv.desktop" ];
+    "audio/*" = ["mpv.desktop"];
+    "video/*" = ["mpv.dekstop"];
+    "image/*" = ["imv.desktop"];
     "application/json" = browser;
-    "application/pdf" = [ "org.pwmt.zathura.desktop.desktop" ];
-    "x-scheme-handler/spotify" = [ "spotify.desktop" ];
-    "x-scheme-handler/discord" = [ "WebCord.desktop" ];
+    "application/pdf" = ["org.pwmt.zathura.desktop.desktop"];
+    "x-scheme-handler/spotify" = ["spotify.desktop"];
+    "x-scheme-handler/discord" = ["WebCord.desktop"];
   };
-in
-{
+in {
   imports = [
     ./cli.nix
     ./fish.nix
@@ -61,7 +61,6 @@ in
       extraConfig = {
         XDG_DEVELOPMENT_DIR = "$HOME/dev";
       };
-
     };
     mimeApps.enable = true;
     mimeApps.associations.added = associations;

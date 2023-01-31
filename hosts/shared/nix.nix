@@ -1,8 +1,9 @@
-{ config
-, pkgs
-, lib
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
 }: {
   environment = {
     etc = {
@@ -11,8 +12,8 @@
       "nix/flake-channels/home-manager".source = inputs.home-manager;
     };
 
-    systemPackages = [ pkgs.git ];
-    defaultPackages = [ ];
+    systemPackages = [pkgs.git];
+    defaultPackages = [];
   };
 
   documentation = {
@@ -22,9 +23,8 @@
     dev.enable = true;
   };
 
-
   ## [TODO] fix this
-#  nixpkgs.pkgs = inputs.self.pkgs;
+  #  nixpkgs.pkgs = inputs.self.pkgs;
   nixpkgs.config.allowUnfree = true;
 
   nix = {
@@ -40,13 +40,13 @@
     ];
 
     extraOptions = ''
-      		  experimental-features = nix-command flakes
-      		'';
+      experimental-features = nix-command flakes
+    '';
 
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;
-      trusted-users = [ "root" "@wheel" ];
+      trusted-users = ["root" "@wheel"];
       max-jobs = "auto";
       # configure cache endpoints
       substituters = [

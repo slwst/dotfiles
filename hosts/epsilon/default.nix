@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }: {
   imports = [
     ./hardware-configuration.nix
@@ -16,7 +17,7 @@
 
     initrd = {
       systemd.enable = true;
-      supportedFilesystems = [ "btrfs" ];
+      supportedFilesystems = ["btrfs"];
     };
   };
 

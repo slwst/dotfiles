@@ -6,7 +6,6 @@
 }:
 with lib; let
   cfg = config.modules.nixos.hardware.nvidia;
-
 in {
   options.modules.nixos.hardware.nvidia = {
     enable = mkEnableOption "Enable NVIDIA";

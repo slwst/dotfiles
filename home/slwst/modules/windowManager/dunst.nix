@@ -89,6 +89,10 @@ in {
 
   # startup w/ i3
   xsession.windowManager.i3.config.startup = [
-    { command = "systemctl --user restart dunst"; always = true; notification = true; }
+    {
+      command = "systemctl --user restart dunst";
+      always = true;
+      notification = true;
+    }
   ];
 }

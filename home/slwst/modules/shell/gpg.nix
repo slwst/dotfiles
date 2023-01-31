@@ -1,19 +1,19 @@
 {
-	pkgs,
-	lib,
-	config,
-	...
+  pkgs,
+  lib,
+  config,
+  ...
 }: {
-	programs = {
+  programs = {
     gpg = {
       enable = true;
       mutableKeys = true;
       mutableTrust = true;
       settings = {
-        personal-cipher-preferences = [ "AES256" "AES192" "AES" ];
-        personal-digest-preferences = [ "SHA512" "SHA384" "SHA256" ];
+        personal-cipher-preferences = ["AES256" "AES192" "AES"];
+        personal-digest-preferences = ["SHA512" "SHA384" "SHA256"];
         #personal-compression-preferences = [ "ZLIB" "BZIP2" "ZIP" "Uncompressed" ];
-        default-preference-list = [ "SHA512" "SHA384" "SHA256" "AES256" "AES192" "AES" "ZLIB" "BZIP2" "ZIP" "Uncompressed" ];
+        default-preference-list = ["SHA512" "SHA384" "SHA256" "AES256" "AES192" "AES" "ZLIB" "BZIP2" "ZIP" "Uncompressed"];
         cert-digest-algo = "SHA512";
         s2k-digest-algo = "SHA512";
         s2k-cipher-algo = "AES256";
@@ -38,13 +38,13 @@
         ];
       };
     };
-	};
-	services = {
+  };
+  services = {
     gpg-agent = {
       enable = true;
       pinentryFlavor = "gnome3";
       enableSshSupport = true;
       enableFishIntegration = true;
     };
-	};
+  };
 }

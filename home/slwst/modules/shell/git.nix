@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }: {
   programs.git = {
     enable = true;
@@ -12,7 +13,7 @@
       signByDefault = true;
     };
     extraConfig = {
-      init = { defaultBranch = "main"; };
+      init = {defaultBranch = "main";};
     };
   };
 }

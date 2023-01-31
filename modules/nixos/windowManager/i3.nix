@@ -3,9 +3,9 @@
   pkgs,
   lib,
   ...
-}: 
+}:
 with lib; let
-    cfg = config.modules.nixos.windowManager.i3;
+  cfg = config.modules.nixos.windowManager.i3;
 in {
   options.modules.nixos.windowManager.i3 = {
     enable = mkEnableOption "Enable the i3 window manager";
@@ -14,7 +14,7 @@ in {
       type = types.str;
       default = "us";
       description = "The keyboard layout to use for the X server.";
-    };  
+    };
   };
 
   config = mkIf cfg.enable {
@@ -35,12 +35,12 @@ in {
       };
 
       config = lib.mkAfter ''
-      Section "InputClass"
-       Identifier   "ds-touchpad"
-       Driver       "libinput"
-       MatchProduct "Wireless Controller Touchpad"
-       Option       "Ignore" "True"
-      EndSection
+        Section "InputClass"
+         Identifier   "ds-touchpad"
+         Driver       "libinput"
+         MatchProduct "Wireless Controller Touchpad"
+         Option       "Ignore" "True"
+        EndSection
       '';
 
       displayManager = {
@@ -48,12 +48,13 @@ in {
         lightdm = {
           enable = true;
           background = builtins.toPath (pkgs.fetchFromGitHub
-          {
-            owner = "catppuccin";
-            repo = "wallpapers";
-            rev = "0cea4a28451851a637762dec07ec4fb2bfebc421";
-            sha256 = "B2ncT2qPc0inHHcO1BAZW5of+K0sIdtPcdpqcPUbKBo=";
-          } + "/os/nix-black-4k.png");
+            {
+              owner = "catppuccin";
+              repo = "wallpapers";
+              rev = "0cea4a28451851a637762dec07ec4fb2bfebc421";
+              sha256 = "B2ncT2qPc0inHHcO1BAZW5of+K0sIdtPcdpqcPUbKBo=";
+            }
+            + "/os/nix-black-4k.png");
           greeters.gtk = {
             enable = true;
             cursorTheme = {
@@ -62,7 +63,7 @@ in {
               size = 16;
             };
             iconTheme = {
-             name = "Papirus-Dark"; 
+              name = "Papirus-Dark";
             };
             theme = {
               name = "Catppuccin-Frappe-Standard-Teal-Dark";
@@ -88,7 +89,7 @@ in {
     security.pam.services.lightdm.u2fAuth = true;
     environment.systemPackages = with pkgs; [
       catppuccin-cursors.frappeDark
-      (catppuccin-gtk.override { accents = ["teal"]; })
+      (catppuccin-gtk.override {accents = ["teal"];})
       feh
       gtk2
       gtk3

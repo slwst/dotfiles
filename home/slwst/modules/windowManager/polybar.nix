@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  ...
 }: {
   services.polybar = {
     enable = true;
@@ -19,7 +20,8 @@
         repo = "polybar";
         rev = "9ee66f83335404186ce979bac32fcf3cd047396a";
         sha256 = "bUbSgMg/sa2faeEUZo80GNmhOX3wn2jLzfA9neF8ERA=";
-      } + "/themes/frappe.ini");
+      }
+      + "/themes/frappe.ini");
     settings = {
       "settings" = {
         screenchange-reload = true;
@@ -73,7 +75,7 @@
 
         label-unfocused-foreground = "\${colors.lavender}";
         label-unfocused-underline = "\${colors.text}";
-        
+
         label-visible-foreground = "\${colors.lavender}";
         label-visible-underline = "\${colors.text}";
       };
@@ -84,48 +86,50 @@
         prefix-format = "<prefix-symbol>";
         format = "<label>";
         format-foreground = "\${colors.sapphire}";
-        exec = (pkgs.writeShellScriptBin "scroll_spotify_status" ''
+        exec =
+          (pkgs.writeShellScriptBin "scroll_spotify_status" ''
 
-          # The name of polybar bar which houses the main spotify module and the control modules.
-          PARENT_BAR="main"
-          PARENT_BAR_PID=$(${pkgs.procps}/bin/pgrep -a "polybar" | ${pkgs.gnugrep}/bin/grep "$PARENT_BAR" | ${pkgs.coreutils}/bin/cut -d" " -f1)
+            # The name of polybar bar which houses the main spotify module and the control modules.
+            PARENT_BAR="main"
+            PARENT_BAR_PID=$(${pkgs.procps}/bin/pgrep -a "polybar" | ${pkgs.gnugrep}/bin/grep "$PARENT_BAR" | ${pkgs.coreutils}/bin/cut -d" " -f1)
 
-          # Set the source audio player here.
-          # Players supporting the MPRIS spec are supported.
-          # Examples: spotify, vlc, chrome, mpv and others.
-          # Use `playerctld` to always detect the latest player.
-          # See more here: https://github.com/altdesktop/playerctl/#selecting-players-to-control
-          PLAYER="playerctld"
+            # Set the source audio player here.
+            # Players supporting the MPRIS spec are supported.
+            # Examples: spotify, vlc, chrome, mpv and others.
+            # Use `playerctld` to always detect the latest player.
+            # See more here: https://github.com/altdesktop/playerctl/#selecting-players-to-control
+            PLAYER="playerctld"
 
-          # Format of the information displayed
-          # Eg. {{ artist }} - {{ album }} - {{ title }}
-          # See more attributes here: https://github.com/altdesktop/playerctl/#printing-properties-and-metadata
-          FORMAT="{{ title }} - {{ artist }}"
+            # Format of the information displayed
+            # Eg. {{ artist }} - {{ album }} - {{ title }}
+            # See more attributes here: https://github.com/altdesktop/playerctl/#printing-properties-and-metadata
+            FORMAT="{{ title }} - {{ artist }}"
 
 
-          PLAYERCTL_STATUS=$(${pkgs.playerctl}/bin/playerctl --player=$PLAYER status 2>/dev/null)
-          EXIT_CODE=$?
+            PLAYERCTL_STATUS=$(${pkgs.playerctl}/bin/playerctl --player=$PLAYER status 2>/dev/null)
+            EXIT_CODE=$?
 
-          if [ $EXIT_CODE -eq 0 ]; then
-              STATUS=$PLAYERCTL_STATUS
-          else
-              STATUS="No player is running"
-          fi
+            if [ $EXIT_CODE -eq 0 ]; then
+                STATUS=$PLAYERCTL_STATUS
+            else
+                STATUS="No player is running"
+            fi
 
-          if [ "$1" == "--status" ]; then
-              echo "$STATUS"
-          else
-              if [ "$STATUS" = "Stopped" ]; then
-                  echo "No music is playing"
-              elif [ "$STATUS" = "Paused"  ]; then
-                  ${pkgs.playerctl}/bin/playerctl --player=$PLAYER metadata --format "$FORMAT"
-              elif [ "$STATUS" = "No player is running"  ]; then
-                  echo ""
-              else
-                  ${pkgs.playerctl}/bin/playerctl --player=$PLAYER metadata --format "$FORMAT"
-              fi
-          fi
-        '') + "/bin/scroll_spotify_status";
+            if [ "$1" == "--status" ]; then
+                echo "$STATUS"
+            else
+                if [ "$STATUS" = "Stopped" ]; then
+                    echo "No music is playing"
+                elif [ "$STATUS" = "Paused"  ]; then
+                    ${pkgs.playerctl}/bin/playerctl --player=$PLAYER metadata --format "$FORMAT"
+                elif [ "$STATUS" = "No player is running"  ]; then
+                    echo ""
+                else
+                    ${pkgs.playerctl}/bin/playerctl --player=$PLAYER metadata --format "$FORMAT"
+                fi
+            fi
+          '')
+          + "/bin/scroll_spotify_status";
       };
       "module/xworkspaces" = {
         type = "internal/xworkspaces";
@@ -186,6 +190,10 @@
 
   # startup w/ i3
   xsession.windowManager.i3.config.startup = [
-    { command = "systemctl --user restart polybar"; always = true; notification = false; }
+    {
+      command = "systemctl --user restart polybar";
+      always = true;
+      notification = false;
+    }
   ];
 }
