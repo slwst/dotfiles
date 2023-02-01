@@ -38,7 +38,7 @@
         border-color = "\${colors.transparent}";
         padding-left = 2;
         padding-right = 2;
-        module-margin = 1;
+        #module-margin = 1;
         separator = "|";
         separator-foreground = "\${colors.overlay1}";
         font-0 = "mononoki Nerd Font Mono:style=Regular:size=16";

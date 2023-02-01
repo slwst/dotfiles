@@ -23,8 +23,7 @@
     dev.enable = true;
   };
 
-  ## [TODO] fix this
-  #  nixpkgs.pkgs = inputs.self.pkgs;
+  nixpkgs.pkgs = inputs.self.pkgs;
   nixpkgs.config.allowUnfree = true;
 
   nix = {

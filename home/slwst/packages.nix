@@ -18,6 +18,8 @@
     fd
     ffmpeg-full
     gcc
+    gimp
+    glava
     glib
     glxinfo
     gnome.gucharmap
@@ -44,6 +46,5 @@
     unzip
     viu
     xdg-utils
-    xfce.thunar
   ];
 }

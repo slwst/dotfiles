@@ -46,7 +46,7 @@ in {
         useOSProber = cfg.useOSProber;
         enableCryptodisk = true;
         configurationLimit = 3;
-        gfxmodeEfi = "1920x1080";
+        gfxmodeEfi = "2560x1440";
       };
     };
   };

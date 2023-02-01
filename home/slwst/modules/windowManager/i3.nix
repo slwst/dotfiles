@@ -10,13 +10,13 @@
     config = rec {
       modifier = "Mod4";
       terminal = "kitty";
-      defaultWorkspace = "workspace number 1";
+      defaultWorkspace = "workspace number 0";
       assigns = {
         "0: term" = [{class = "^kitty-primary$";}];
         "1: web" = [{window_role = "^browser$";}];
         "2: comms" = [{class = "^discord$";} {class = "^Session$";}];
         "7: gaming" = [{class = "^Steam$";}];
-        "8: music" = [{class = "^Spotify$";}];
+        "8: music" = [{class = "^Spotify$";} {class = "^Glava$";}];
         "9: sysmon" = [{class = "^kitty-btm$";}];
       };
 
@@ -86,6 +86,7 @@
         {command = "brave";}
         {command = "spotifywm";}
         {command = "kitty --class=kitty-btm btm";}
+        {command = "glava"}
       ];
 
       keybindings = lib.mkOptionDefault {

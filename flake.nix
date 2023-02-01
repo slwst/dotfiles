@@ -4,7 +4,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    hyprland.url = "github:hyprwm/Hyprland";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -27,6 +26,11 @@
         allowUnfree = true;
         tarball-ttl = 0;
       };
+      overlays = [
+        (final: prev: {
+          adi1090x-plymouth-themes = final.callPackage ./pkgs/adi1090x-plymouth-themes.nix {};
+        })
+      ];
     };
   in rec
   {
@@ -48,6 +52,6 @@
     };
 
     # use alejandra as formatter
-    formatter.${system} = pkgs.${system}.alejandra;
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
   };
 }

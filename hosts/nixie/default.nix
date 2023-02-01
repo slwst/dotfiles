@@ -10,7 +10,6 @@
 
     # Shared Configuration
     ../shared
-    ../shared/users/slwst.nix
   ];
 
   boot = {
