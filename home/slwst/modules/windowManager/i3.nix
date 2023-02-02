@@ -12,37 +12,37 @@
       terminal = "kitty";
       defaultWorkspace = "workspace number 0";
       assigns = {
-        "0: term" = [{class = "^kitty-primary$";}];
-        "1: web" = [{window_role = "^browser$";}];
-        "2: comms" = [{class = "^discord$";} {class = "^Session$";}];
-        "7: gaming" = [{class = "^Steam$";}];
-        "8: music" = [{class = "^Spotify$";} {class = "^Glava$";}];
-        "9: sysmon" = [{class = "^kitty-btm$";}];
+        "0:term" = [{class = "^kitty-primary$";}];
+        "1:web" = [{window_role = "^browser$";}];
+        "2:comms" = [{class = "^discord$";} {class = "^Session$";}];
+        "7:gaming" = [{class = "^Steam$";}];
+        "8:music" = [{class = "^Spotify$";} {class = "^GLava$";}];
+        "9:sysmon" = [{class = "^kitty-btm$";}];
       };
 
       workspaceOutputAssign = [
         {
-          workspace = "0: term";
+          workspace = "0:term";
           output = "primary";
         }
         {
-          workspace = "1: web";
+          workspace = "1:web";
           output = "nonprimary";
         }
         {
-          workspace = "2: comms";
+          workspace = "2:comms";
           output = "nonprimary";
         }
         {
-          workspace = "7: gaming";
+          workspace = "7:gaming";
           output = "primary";
         }
         {
-          workspace = "8: music";
+          workspace = "8:music";
           output = "nonprimary";
         }
         {
-          workspace = "9: sysmon";
+          workspace = "9:sysmon";
           output = "nonprimary";
         }
       ];
@@ -84,9 +84,17 @@
         {command = "touchegg";}
         {command = "kitty --class=kitty-primary";}
         {command = "brave";}
-        {command = "spotifywm";}
         {command = "kitty --class=kitty-btm btm";}
-        {command = "glava"}
+        {command = 
+          (pkgs.writeShellScriptBin "music-startup" ''
+            i3-msg 'exec spotifywm'
+            ${pkgs.coreutils}/bin/sleep 1
+            i3-msg 'workspace 8:music; split vertical'
+            i3-msg 'exec glava' 
+            ${pkgs.coreutils}/bin/sleep 1
+            i3-msg '[class="^GLava$"] resize set height 20 ppt'
+          '')+"/bin/music-startup";
+        }
       ];
 
       keybindings = lib.mkOptionDefault {
@@ -134,13 +142,13 @@
         "${modifier}+Shift+x" = "exec systemctl suspend";
 
         # Workspaces
-        "${modifier}+0" = "workspace 0: term";
-        "${modifier}+1" = "workspace 1: web";
-        "${modifier}+2" = "workspace 2: comms";
-        "${modifier}+3" = "workspace 3: mail";
-        "${modifier}+7" = "workspace 7: gaming";
-        "${modifier}+8" = "workspace 8: music";
-        "${modifier}+9" = "workspace 9: sysmon";
+        "${modifier}+0" = "workspace 0:term";
+        "${modifier}+1" = "workspace 1:web";
+        "${modifier}+2" = "workspace 2:comms";
+        "${modifier}+3" = "workspace 3:mail";
+        "${modifier}+7" = "workspace 7:gaming";
+        "${modifier}+8" = "workspace 8:music";
+        "${modifier}+9" = "workspace 9:sysmon";
 
         # Screenshots
         "Print" = "exec --no-startup-id maim ${config.xdg.userDirs.pictures}/screenshot-$(date +%Y%m%d-%H%M%S).png";
