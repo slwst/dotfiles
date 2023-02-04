@@ -15,6 +15,8 @@
     # latest kernel
     kernelPackages = pkgs.linuxPackages_latest;
 
+    kernelParams = [ "quiet" ];
+
     initrd = {
       systemd.enable = true;
       supportedFilesystems = ["btrfs"];

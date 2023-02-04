@@ -129,7 +129,7 @@
         "XF86AudioPlay" = "exec playerctl -a play-pause";
         "XF86AudioPause" = "exec playerctl -a play-pause";
         "XF86AudioNext" = "exec playerctl -a next";
-        "XF86AudioPrevious" = "exec playerctl -a previous";
+        "XF86AudioPrev" = "exec playerctl -a previous";
         # Brightness
         "XF86MonBrightnessDown" = "exec brightnessctl set 4%-";
         "XF86MonBrightnessUp" = "exec brightnessctl set 4%+";

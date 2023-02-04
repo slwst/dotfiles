@@ -17,13 +17,11 @@
     dconf
     fd
     ffmpeg-full
-    gcc
     gimp
     glava
     glib
     glxinfo
     gnome.gucharmap
-    helix
     imagemagick
     jq
     license-generator
@@ -31,6 +29,7 @@
     lutris
     mpv
     neo
+    nvitop
     pamixer
     pavucontrol
     playerctl
