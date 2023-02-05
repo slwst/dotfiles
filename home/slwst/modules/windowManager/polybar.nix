@@ -12,7 +12,7 @@
     };
     script = ''
       MONITOR=DP-0 polybar --reload main &
-      MONITOR=HDMI-1 polybar --reload extra &
+      MONITOR=HDMI-0 polybar --reload extra &
     '';
     extraConfig = builtins.readFile (pkgs.fetchFromGitHub
       {

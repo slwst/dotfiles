@@ -16,12 +16,23 @@
     enable = true;
     settings = {
       flags.group_processes = true;
+      flags.hide_avg_cpu = true;
       row = [
         {
           ratio = 2;
           child = [
-            {type = "cpu";}
-            {type = "mem";}
+            {
+              type = "cpu";
+              ratio = 2;
+            }
+            {
+              type = "mem";
+              ratio = 2;
+            }
+            {
+              type = "disk";
+              ratio = 1;
+            }
           ];
         }
         {
@@ -36,7 +47,6 @@
               ratio = 1;
               child = [
                 {type = "temp";}
-                {type = "disk";}
               ];
             }
           ];

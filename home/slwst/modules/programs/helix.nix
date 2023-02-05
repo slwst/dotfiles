@@ -81,7 +81,7 @@
         name = "nix";
         auto-format = true;
         language-server = {command = lib.getExe inputs.nil.packages.${pkgs.system}.default;};
-        config.nil.formatting.command = ["nix" "fmt"];
+        config.nil.formatting.command = ["alejandra" "-q"];
       }
       {
         name = "rust";

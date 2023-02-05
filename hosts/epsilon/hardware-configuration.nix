@@ -66,7 +66,7 @@
 
   services.xserver = {
     screenSection = ''
-      Option "metamodes" "DP-0: 3440x1440_100 {ForceFullCompositionPipeline=On}, HDMI-1: nvidia-auto-select {ForceFullCompositionPipeline=On}"
+      Option "metamodes" "DP-0: 3440x1440_100 {ForceFullCompositionPipeline=On}, HDMI-0: nvidia-auto-select {ForceFullCompositionPipeline=On}"
       Option "AllowIndirectGXProtocol" "off"
       Option "TripleBuffer" "on"
     '';

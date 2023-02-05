@@ -85,15 +85,17 @@
         {command = "kitty --class=kitty-primary";}
         {command = "brave";}
         {command = "kitty --class=kitty-btm btm";}
-        {command = 
-          (pkgs.writeShellScriptBin "music-startup" ''
-            i3-msg 'exec spotifywm'
-            ${pkgs.coreutils}/bin/sleep 1
-            i3-msg 'workspace 8:music; split vertical'
-            i3-msg 'exec glava' 
-            ${pkgs.coreutils}/bin/sleep 1
-            i3-msg '[class="^GLava$"] resize set height 20 ppt'
-          '')+"/bin/music-startup";
+        {
+          command =
+            (pkgs.writeShellScriptBin "music-startup" ''
+              i3-msg 'exec spotifywm'
+              ${pkgs.coreutils}/bin/sleep 1
+              i3-msg 'workspace 8:music; split vertical'
+              i3-msg 'exec glava'
+              ${pkgs.coreutils}/bin/sleep 1
+              i3-msg '[class="^GLava$"] resize set height 20 ppt'
+            '')
+            + "/bin/music-startup";
         }
       ];
 
