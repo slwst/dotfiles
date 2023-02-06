@@ -22,6 +22,7 @@
     glib
     glxinfo
     gnome.gucharmap
+    gnome.gnome-power-manager
     imagemagick
     jq
     license-generator
