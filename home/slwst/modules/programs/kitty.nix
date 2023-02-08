@@ -6,6 +6,8 @@
   programs.kitty = {
     enable = true;
     settings = {
+      font_family = "mononoki Nerd Font Mono";
+      font_size = "12.0";
       # Window
       background_opacity = "0.8";
       scrollback_lines = 10000;

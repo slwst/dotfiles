@@ -30,7 +30,10 @@
     lutris
     mpv
     neo
+    neofetch
+    nitch
     nvitop
+    obsidian
     pamixer
     pavucontrol
     playerctl

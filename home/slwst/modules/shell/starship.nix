@@ -18,12 +18,12 @@
         show_always = true;
         style_user = "bg:#5534a5";
         style_root = "bg:#5534a5";
-        format = "[$user ]($style)";
+        format = "[$user]($style)";
       };
       hostname = {
         ssh_only = true;
         ssh_symbol = " ";
-        format = "[@ $hostname $ssh_symbol]($style)";
+        format = "[@$hostname $ssh_symbol]($style)";
         style = "bg:#5534a5";
       };
       directory = {

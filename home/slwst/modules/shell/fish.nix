@@ -7,6 +7,12 @@
   programs.fish = {
     enable = true;
     functions = {
+      fish_greeting = ''
+        status --is-login
+        if [ $status != 0 ]
+          ${pkgs.nitch}/bin/nitch
+        end
+      '';
       gitignore = "curl -sL https://gitignore.io/api/$argv";
       starship_transient_prompt_func = "starship module character";
       starship_transient_rprompt_func = "starship module time";
