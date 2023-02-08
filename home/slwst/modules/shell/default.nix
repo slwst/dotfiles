@@ -38,6 +38,7 @@ in {
     ./nix.nix
     ./ssh.nix
     ./starship.nix
+    ./tmux.nix
   ];
   services = {
     udiskie.enable = true;
