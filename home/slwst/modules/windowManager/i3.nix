@@ -139,6 +139,7 @@
         # Programs
         "${modifier}+Return" = "exec kitty";
         "${modifier}+d" = "exec rofi -modi drun -show drun";
+        "${modifier}+m" = "exec rofi -modi emoji -show emoji";
         "${modifier}+Shift+d" = "exec rofi -show window";
         "${modifier}+b" = "exec brave";
         "${modifier}+Shift+x" = "exec systemctl suspend";
