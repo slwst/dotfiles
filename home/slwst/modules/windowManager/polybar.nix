@@ -52,7 +52,7 @@
         width = "100%";
         modules-left = "i3 xwindow";
         modules-center = "spotify";
-        modules-right = "dualsense pulseaudio memory cpu date";
+        modules-right = "magicTrackpad dualsense pulseaudio memory cpu date";
       };
       "bar/extra" = {
         "inherit" = "bar/base";
@@ -80,6 +80,7 @@
         label-visible-underline = "\${colors.text}";
       };
       "module/dualsense" = import ./polybar-dualsense.nix pkgs;
+      "module/magicTrackpad" = import ./polybar-magic-trackpad.nix pkgs;
       "module/spotify" = import ./polybar-spotify.nix pkgs;
       "module/xworkspaces" = {
         type = "internal/xworkspaces";
@@ -114,7 +115,7 @@
       "module/memory" = {
         type = "internal/memory";
         interval = 2;
-        format-prefix = "Ram ";
+        format-prefix = "RAM ";
         format-prefix-foreground = "\${colors.pink}";
         label = "%percentage_used:2%%";
       };

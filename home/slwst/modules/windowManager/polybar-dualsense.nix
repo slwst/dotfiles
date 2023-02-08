@@ -8,7 +8,8 @@
   exec =
     (pkgs.writeShellScriptBin "dualsense_batt" ''
       FOUND=0
-      LEVELS="󰐔"
+      SYMBOL="󰐔"
+      LEVELS="$SYMBOL"
       for dir in /sys/class/power_supply/ps-controller-battery-*/; do
         if [ -d $dir ]; then
           FOUND=$((FOUND+1))
@@ -18,6 +19,8 @@
       done
       if (( $FOUND >> 0)); then
         echo $LEVELS
+      else
+        echo ""
       fi
     '')
     + "/bin/dualsense_batt";

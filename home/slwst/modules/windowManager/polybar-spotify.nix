@@ -4,7 +4,7 @@
   interval = 1;
   prefix-format = "<prefix-symbol>";
   format = "<label>";
-  format-foreground = "\${colors.sapphire}";
+  format-foreground = "\${colors.sky}";
   exec =
     (pkgs.writeShellScriptBin "scroll_spotify_status" ''
 
