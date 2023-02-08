@@ -2,6 +2,7 @@
 
 * 🖥 X11 / i3wm / lightdm
 * 🪟 polybar / rofi / dunst
+* 🐚 kitty / fish / starship
 * ⚡ libvirtd / docker / podman
 * 🏠 homemanager
 
