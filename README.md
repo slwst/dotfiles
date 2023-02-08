@@ -18,6 +18,9 @@
     - [programs](home/slwst/modules/programs) kitty, discord, helix, etc
     - [shell](home/slwst/modules/programs) 🐟🚀 my trusty fish+starship config plus friends
     - [windowManager](home/slwst/modules/programs) 🍚 for i3wm/gtk and polybar
+- [hosts](hosts)
+    - [epsilon](hosts/epsilon) ϵ i9-12900KF (24) @ 5.100GHz / RTX 2080 SUPER / 32gb
+    - [nixie](hosts/nixie) - VM for experimentation
 
 ## Fresh Install
 ### cli
