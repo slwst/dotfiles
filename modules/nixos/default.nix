@@ -1,7 +1,7 @@
 {
   bootloader = import ./bootloader;
   hardware = import ./hardware;
-  virtualisation = import ./virtualisation;
+  virtualization = import ./virtualization;
   windowManager = import ./windowManager;
   steam = import ./steam;
 }

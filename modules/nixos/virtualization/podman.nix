@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.virtualisation.podman;
+  cfg = config.modules.nixos.virtualization.podman;
 in {
-  options.modules.nixos.virtualisation.podman = {
+  options.modules.nixos.virtualization.podman = {
     enable = mkEnableOption "Enable The Podman Container Engine";
 
     enableNvidia = mkOption {
