@@ -4,6 +4,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-slwst.url = "github:slwst/nixpkgs/adi1090x-plymouth-themes";
     helix.url = "github:helix-editor/helix";
 
     home-manager = {
@@ -38,10 +39,14 @@
         allowUnfree = true;
         tarball-ttl = 0;
       };
-      overlays = [
-        (final: prev: {
-          adi1090x-plymouth-themes = final.callPackage ./pkgs/adi1090x-plymouth-themes.nix {};
-        })
+      overlays = with inputs; [
+        (
+          final: prev: let
+            inherit (final) system;
+          in {
+            adi1090x-plymouth-themes = nixpkgs-slwst.legacyPackages.${system}.adi1090x-plymouth-themes;
+          }
+        )
       ];
     };
   in rec

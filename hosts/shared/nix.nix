@@ -48,6 +48,7 @@
       trusted-users = ["root" "@wheel"];
       max-jobs = "auto";
       # configure cache endpoints
+      sandbox = true;
       substituters = [
         "https://cache.nixos.org"
         "https://nixpkgs-wayland.cachix.org"

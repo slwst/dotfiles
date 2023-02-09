@@ -11,11 +11,11 @@
 - [system modules](modules/nixos) ❄ modularized NixOS system configuration.
     - [bootloader](modules/nixos/bootloader) 🐛 provides a generic grub configuration
     - [hardware](modules/nixos/hardware) 🟩 nvidia desktop hardware config.  green go oss soon or it will be the last.
-    - [steam](modules/nixos/steam) provides steam with runtime configuration and helpful tools
-    - [virtualization](modules/nixos/virtualization) Enables docker, libvirtd, and podman
+    - [steam](modules/nixos/steam) 🎮 provides steam with runtime configuration and helpful tools
+    - [virtualization](modules/nixos/virtualization) ⚡ Enables docker, libvirtd, and podman
     - [windowManager](modules/nixos/windowManager) ✖ Configures X & i3wm with lightdm and light 🍙
 - [home manager](home/slwst) 🏠 modularized home configuration
-    - [programs](home/slwst/modules/programs) kitty, discord, helix, etc
+    - [programs](home/slwst/modules/programs) 😸 kitty, discord, helix, etc
     - [shell](home/slwst/modules/programs) 🐟🚀 my trusty fish+starship config plus friends
     - [windowManager](home/slwst/modules/programs) 🍚 for i3wm/gtk and polybar
 - [hosts](hosts)
