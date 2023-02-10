@@ -11,9 +11,9 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi.override {
-      plugins = [
-        pkgs.rofi-calc
-        pkgs.rofi-emoji
+      plugins = with pkgs; [
+        rofi-calc
+        rofi-emoji
       ];
     };
     font = "mononoki Nerd Font 13";
@@ -200,4 +200,8 @@
       };
     };
   };
+  home.packages = with pkgs; [
+    rofi-pulse-select
+    rofi-power-menu
+  ];
 }

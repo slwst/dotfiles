@@ -143,6 +143,8 @@
         "${modifier}+Shift+d" = "exec rofi -show window";
         "${modifier}+b" = "exec brave";
         "${modifier}+Shift+x" = "exec systemctl suspend";
+        "${modifier}+Shift+p" = "exec rofi -modi power-menu:rofi-power-menu -show power-menu";
+        "${modifier}+Shift+s" = "exec rofi-pulse-select sink";
 
         # Workspaces
         "${modifier}+0" = "workspace 0:term";
