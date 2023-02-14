@@ -10,6 +10,8 @@
     alsa-utils
 
     bandwhich
+    blender
+    bottles
     brave
     cached-nix-shell
     cinnamon.nemo
