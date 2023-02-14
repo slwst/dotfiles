@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  browser = ["brave.desktop"];
+  browser = ["firefox.desktop"];
 
   associations = {
     "text/html" = browser;

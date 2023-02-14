@@ -83,7 +83,7 @@
       startup = [
         {command = "touchegg";}
         {command = "kitty --class=kitty-primary";}
-        {command = "brave";}
+        {command = "firefox";}
         {command = "kitty --class=kitty-btm btm";}
         {
           command =
@@ -141,7 +141,7 @@
         "${modifier}+d" = "exec rofi -modi drun -show drun";
         "${modifier}+m" = "exec rofi -modi emoji -show emoji";
         "${modifier}+Shift+d" = "exec rofi -show window";
-        "${modifier}+b" = "exec brave";
+        "${modifier}+b" = "exec firefox";
         "${modifier}+Shift+x" = "exec systemctl suspend";
         "${modifier}+Shift+p" = "exec rofi -modi power-menu:rofi-power-menu -show power-menu";
         "${modifier}+Shift+s" = "exec rofi-pulse-select sink";
