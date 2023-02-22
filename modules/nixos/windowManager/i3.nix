@@ -75,6 +75,15 @@ in {
       # TODO move non-default config items to user modules
       windowManager.i3.enable = true;
     };
+    hardware.opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+    };
     xdg.portal = {
       enable = true;
       extraPortals = [

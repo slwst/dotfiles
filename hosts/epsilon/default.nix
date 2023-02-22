@@ -24,17 +24,6 @@
   };
 
   hardware = {
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        libva
-        libvdpau
-        libvdpau-va-gl
-        vaapiVdpau
-      ];
-    };
     bluetooth = {
       enable = true;
       package = pkgs.bluez;
@@ -56,8 +45,6 @@
   };
 
   environment = {
-    variables = {__GL_MaxFramesAllowed = "0";};
-
     systemPackages = with pkgs; [
       acpi
       brightnessctl
