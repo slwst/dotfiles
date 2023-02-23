@@ -5,7 +5,12 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-slwst.url = "github:slwst/nixpkgs/adi1090x-plymouth-themes";
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+
     helix.url = "github:helix-editor/helix";
+
+    hyprland.url = "github:hyprwm/Hyprland/";
+    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
 
     home-manager = {
       url = "github:nix-community/home-manager";

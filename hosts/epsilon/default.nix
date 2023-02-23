@@ -79,10 +79,7 @@
       };
     };
 
-    windowManager.i3 = {
-      enable = true;
-      layout = "us";
-    };
+    wayland.enable = true;
   };
 
   system.stateVersion = lib.mkForce "22.11";

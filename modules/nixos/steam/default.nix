@@ -27,10 +27,8 @@ in {
       };
 
       systemPackages = with pkgs; [
-        nspr # albion
         protonup
         gamemode
-        SDL2
       ];
     };
   };

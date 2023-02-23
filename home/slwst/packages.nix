@@ -11,7 +11,7 @@
 
     bandwhich
     blender
-    bottles
+    #bottles
     brave
     cached-nix-shell
     cinnamon.nemo
