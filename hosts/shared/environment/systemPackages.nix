@@ -5,6 +5,7 @@
     git
     hddtemp
     jq
+    file
     kitty #for terminfo
     lm_sensors
     pciutils

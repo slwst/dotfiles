@@ -7,7 +7,6 @@
   services.openssh = {
     enable = true;
     openFirewall = true;
-    forwardX11 = false;
     ports = [22];
     banner = ''
       ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⠖⢶⣦⣄⡀⠀⢀⣴⣶⠟⠓⣶⣦⣄⡀⠀⠀⠀⠀⠀⣀⣤⣤⣀⡀⠀⠀⢠⣤⣤⣄⡀⠀⠀⠀⠀⠀
@@ -36,6 +35,7 @@
 
     '';
     settings = {
+      X11Forwarding = false;
       kbdInteractiveAuthentication = false;
       passwordAuthentication = lib.mkForce false;
       permitRootLogin = lib.mkForce "no";

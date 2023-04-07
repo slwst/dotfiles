@@ -29,6 +29,7 @@
       package = pkgs.bluez;
     };
     i2c.enable = true;
+    openrazer.enable = true;
 
     pulseaudio.enable = false;
   };
@@ -36,7 +37,7 @@
   services = {
     btrfs.autoScrub.enable = true;
     acpid.enable = true;
-    thermald.enable = true;
+    #thermald.enable = true;
     upower.enable = true;
     hardware.openrgb = {
       enable = true;
