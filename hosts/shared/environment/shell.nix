@@ -7,4 +7,5 @@
       dbus-update-activation-environment --all
     '';
   };
+  programs.fish.enable = true;
 }
