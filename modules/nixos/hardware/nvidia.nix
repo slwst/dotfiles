@@ -38,6 +38,9 @@ in {
         modesetting.enable = true;
         powerManagement.enable = true;
 
+        # should be one release behind latest or stable
+        package = config.boot.kernelPackages.nvidiaPackages.production;
+
         # experimental
         open = false;
       };

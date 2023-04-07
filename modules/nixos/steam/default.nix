@@ -17,6 +17,7 @@ in {
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = false;
     };
+    programs.gamemode.enable = true;
 
     environment = {
       sessionVariables = rec {
@@ -29,7 +30,7 @@ in {
       systemPackages = with pkgs; [
         nspr # albion
         protonup
-        gamemode
+        #        gamemode
         SDL2
       ];
     };
