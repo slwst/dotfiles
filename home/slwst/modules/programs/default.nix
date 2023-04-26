@@ -6,5 +6,6 @@
     ./helix.nix
     ./kitty.nix
     ./mpd.nix
+    ./thunderbird.nix
   ];
 }
