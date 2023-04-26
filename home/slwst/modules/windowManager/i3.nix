@@ -23,6 +23,7 @@ in {
             "0:term" = [{class = "^kitty-primary$";}];
             "1:web" = [{window_role = "^browser$";}];
             "2:comms" = [{class = "^discord$";} {class = "^Session$";}];
+            "3:mail" = [{class = "^thunderbird$";}];
             "7:gaming" = [{class = "^Steam$";}];
             "8:music" = [{class = "^Spotify$";} {class = "^GLava$";}];
             "9:sysmon" = [{class = "^kitty-btm$";}];
@@ -40,6 +41,10 @@ in {
             {
               workspace = "2:comms";
               output = "nonprimary";
+            }
+            {
+              workspace = "3:mail";
+              output = "primary";
             }
             {
               workspace = "7:gaming";
@@ -92,6 +97,7 @@ in {
             {command = "touchegg";}
             {command = "kitty --class=kitty-primary";}
             {command = "firefox";}
+            {command = "thunderbird";}
             {command = "kitty --class=kitty-btm btm";}
             {
               command =
