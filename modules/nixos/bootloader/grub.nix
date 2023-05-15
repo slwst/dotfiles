@@ -40,7 +40,6 @@ in {
 
       grub = {
         enable = true;
-        version = 2;
         device = "${cfg.device}";
         efiSupport = true;
         useOSProber = cfg.useOSProber;
