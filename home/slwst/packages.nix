@@ -22,6 +22,8 @@
     d2
     fd
     ffmpeg-full
+    fzf
+    gh
     gimp
     github-desktop
     gitkraken

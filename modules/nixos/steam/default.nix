@@ -31,6 +31,7 @@ in {
         nspr # albion
         protonup
         #        gamemode
+        steamcmd
         SDL2
       ];
     };
