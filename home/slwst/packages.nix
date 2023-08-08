@@ -22,11 +22,10 @@
     d2
     fd
     ffmpeg-full
+    freecad
     fzf
     gh
     gimp
-    github-desktop
-    gitkraken
     glava
     glib
     glxinfo
@@ -36,7 +35,10 @@
     google-cloud-sdk
     imagemagick
     jq
+    kicad
     libpng
+    librecad
+    libreoffice-fresh
     license-generator
     lm_sensors
     lutris
@@ -47,6 +49,7 @@
     nitch
     nvitop
     obsidian
+    openssl
     pamixer
     pavucontrol
     playerctl
@@ -57,10 +60,12 @@
     ripgrep
     rsync
     session-desktop
+    slack
     spotifywm
     strace
     stress
     s-tui
+    teamspeak_client
     tree
     ttyper
     unzip

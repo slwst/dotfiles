@@ -19,6 +19,11 @@ in {
     };
     programs.gamemode.enable = true;
 
+    boot.kernelParams = [
+    "split_lock_detect=off"
+    "clearcpuid=514"
+    ];
+
     environment = {
       sessionVariables = rec {
         STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";

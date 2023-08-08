@@ -24,6 +24,8 @@ in {
       ++ ifTheyExist [
         "docker"
         "git"
+        "kvm"
+        "libvirt"
         "libvirtd"
         "openrazer"
       ];

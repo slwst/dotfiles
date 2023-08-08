@@ -13,7 +13,8 @@
 
   boot = {
     # latest kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+#      kernelPackages = pkgs.linuxPackages_latest;
+      kernelPackages = pkgs.linuxPackages_zen;
 
     kernelParams = ["quiet"];
 

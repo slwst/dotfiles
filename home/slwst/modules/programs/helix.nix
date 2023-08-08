@@ -1,5 +1,5 @@
 {
-  config,
+  lib,
   pkgs,
   inputs,
   ...
@@ -46,58 +46,57 @@
         "ui.backround" = "{}";
       };
     };
-    languages = with pkgs; [
-      {
-        name = "cpp";
-        auto-format = true;
-        language-server = {
-          command = "${clang-tools}/bin/clangd";
+    languages = {
+      language = [
+        {
+          name = "cpp";
+          auto-format = false;
+          formatter = {
+            command = "${pkgs.clang-tools}/bin/clang-format";
+            args = ["-i"];
+          };
+        }
+        {
+          name = "css";
+          auto-format = true;
+        }
+        {
+          name = "go";
+          auto-format = true;
+          formatter.command = "${pkgs.go}/bin/gofmt";
+        }
+        {
+          name = "javascript";
+          auto-format = true;
+        }
+        {
+          name = "rust";
+          auto-format = false;
+        }
+        {
+          name = "typescript";
+          auto-format = true;
+          formatter.command = "${pkgs.nodePackages.prettier}/bin/prettier";
+        }
+      ];
+      language-server = {
+        clangd = {
+          command = "${pkgs.clang-tools}/bin/clangd";
           clangd.fallbackFlags = ["-std=c++2b"];
         };
-        formatter = {
-          command = "${clang-tools}/bin/clang-format";
-          args = ["-i"];
+        gopls = {
+          command = "${pkgs.gopls}/bin/gopls";
         };
-      }
-      {
-        name = "css";
-        auto-format = true;
-      }
-      {
-        name = "go";
-        auto-format = true;
-        language-server.command = "${gopls}/bin/gopls";
-        formatter.command = "${go}/bin/gofmt";
-      }
-      {
-        name = "javascript";
-        auto-format = true;
-        language-server = {
-          command = "${nodePackages.typescript-language-server}/bin/typescript-language-server";
-          args = ["--stdio"];
+        nil = {
+          command = lib.getExe pkgs.nil;
+          config.nil.formatting.command = ["${lib.getExe pkgs.alejandra}" "-q"];
         };
-      }
-      {
-        name = "nix";
-        auto-format = true;
-        language-server = {command = lib.getExe inputs.nil.packages.${pkgs.system}.default;};
-        config.nil.formatting.command = ["alejandra" "-q"];
-      }
-      {
-        name = "rust";
-        auto-format = true;
-        formatter.command = lib.getExe rustfmt;
-      }
-      {
-        name = "typescript";
-        auto-format = true;
-        language-server = {
-          command = "${nodePackages.typescript-language-server}/bin/typescript-language-server";
-          args = ["--stdio"];
+        typescript-language-server = with pkgs.nodePackages; {
+          command = "${typescript-language-server}/bin/typescript-language-server";
+          args = ["--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib"];
         };
-        formatter.command = "${nodePackages.prettier}/bin/prettier";
-      }
-    ];
+      };
+    };
   };
   home.packages = with pkgs; [
     # Dev tools
@@ -105,7 +104,6 @@
     clang
     clang-tools
     delve
-    elixir_ls
     gawk
     go
     gomodifytags
