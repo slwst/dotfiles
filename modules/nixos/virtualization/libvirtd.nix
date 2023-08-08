@@ -12,7 +12,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.virt-manager];
+    environment.systemPackages = [
+      pkgs.virt-manager
+      pkgs.spice
+      pkgs.spice-gtk
+    ];
 
     virtualisation.libvirtd = {
       enable = true;

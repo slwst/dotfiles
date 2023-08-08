@@ -36,10 +36,10 @@
     '';
     settings = {
       X11Forwarding = false;
-      kbdInteractiveAuthentication = false;
-      passwordAuthentication = lib.mkForce false;
-      permitRootLogin = lib.mkForce "no";
-      useDns = false;
+      KbdInteractiveAuthentication = false;
+      PasswordAuthentication = lib.mkForce false;
+      PermitRootLogin = lib.mkForce "no";
+      UseDns = false;
     };
 
     hostKeys = [
@@ -67,8 +67,10 @@
   };
 
   # enable mosh
+  /*
   programs.mosh = {
     enable = true;
     withUtempter = true;
   };
+  */
 }
