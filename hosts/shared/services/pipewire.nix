@@ -47,18 +47,11 @@
       }
       table.insert(alsa_monitor.rules,rule)
     '';
-    /*
-    "pipewire/pipewire.d/10-rates.conf".source = json.generate "10-rates.conf" {
+    "pipewire/pipewire.conf.d/10-rates.conf".source = json.generate "10-rates.conf" {
       context.properties = {
-        default.clock.min-quantum = 1024;
+        #default.clock.min-quantum = 1024;
+        default.clock.allowed-rates = [ 48000 96000 ];
       };
     };
-
-    "pipewire/pipewire-pulse.d/93-latency.conf".source = json.generate "93-latency.conf" {
-      pulse.properties = {
-        pulse.min.quantum = "1024/48000";
-      };
-    };
-    */
   };
 }

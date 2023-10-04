@@ -20,8 +20,8 @@ in {
     programs.gamemode.enable = true;
 
     boot.kernelParams = [
-    "split_lock_detect=off"
-    "clearcpuid=514"
+      "split_lock_detect=off"
+      "clearcpuid=514"
     ];
 
     environment = {
@@ -38,6 +38,7 @@ in {
         #        gamemode
         steamcmd
         SDL2
+        protontricks
       ];
     };
   };
