@@ -27,7 +27,6 @@
     gh
     gimp
     glava
-    glib
     glxinfo
     gnome.gucharmap
     gnome.gnome-power-manager

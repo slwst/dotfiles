@@ -4,7 +4,7 @@
   ...
 }: {
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       (nerdfonts.override {fonts = ["Mononoki"];})
       inter
       (google-fonts.override {fonts = ["Nunito"];}).out

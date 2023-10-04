@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+
   ...
 }: {
   imports = [
@@ -14,9 +15,12 @@
   boot = {
     # latest kernel
 #      kernelPackages = pkgs.linuxPackages_latest;
-      kernelPackages = pkgs.linuxPackages_zen;
+#      kernelPackages = pkgs.linuxPackages_zen;
+      kernelPackages = pkgs.linuxPackages_xanmod_stable;
 
-    kernelParams = ["quiet"];
+    kernelParams = [
+      "quiet"
+    ];
 
     initrd = {
       systemd.enable = true;
@@ -43,6 +47,7 @@
     hardware.openrgb = {
       enable = true;
       motherboard = "intel";
+      package = pkgs.openrgb-with-all-plugins;
     };
   };
 
@@ -77,13 +82,16 @@
 
       podman = {
         enable = true;
-        enableNvidia = true;
+        enableNvidia = false;
       };
     };
 
     windowManager.i3 = {
       enable = true;
       layout = "us";
+    };
+    windowManager.sway = {
+      enable = false;
     };
   };
 

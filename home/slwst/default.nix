@@ -16,5 +16,6 @@
   ];
   config.modules = {
     windowManager.i3.enable = true;
+    windowManager.sway.enable = false;
   };
 }

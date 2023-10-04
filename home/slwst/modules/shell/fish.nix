@@ -17,6 +17,7 @@
       starship_transient_prompt_func = "starship module character";
       starship_transient_rprompt_func = "starship module time";
       dots = "hx ~/.dotfiles";
+      goflake = "nix flake init -t github:nix-community/gomod2nix#app";
       nrs = "sudo nixos-rebuild switch --flake ~/.dotfiles#";
       nrsi = "sudo nixos-rebuild switch --flake ~/.dotfiles# --impure";
     };
@@ -28,6 +29,8 @@
     interactiveShellInit = ''
       # enable transient prompt with starship
         bind \r transient_execute
+      # direnv
+      direnv hook fish | source
     '';
     plugins = [
       {
