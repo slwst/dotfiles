@@ -49,6 +49,15 @@
       motherboard = "intel";
       package = pkgs.openrgb-with-all-plugins;
     };
+    #[TODO] k3s move into module
+    k3s = {
+      enable = true;
+      role = "server";
+      extraFlags = toString [
+        "--write-kubeconfig-mode 0644"
+#        "--container-runtime-endpoint unix:///run/podman/podman.sock"
+      ];
+    };
   };
 
   environment = {
@@ -56,6 +65,7 @@
       acpi
       brightnessctl
       gcc
+      k3s
       libva-utils
       ocl-icd
       vulkan-tools

@@ -86,6 +86,7 @@ in {
     };
     xdg.portal = {
       enable = true;
+      config.common.default = "*";
       xdgOpenUsePortal = true;
       extraPortals = [
         pkgs.xdg-desktop-portal-kde

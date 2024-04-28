@@ -21,6 +21,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust-overlay";
     };
+    pyfa = {
+      url = "path:/home/slwst/dev/nix/pyfa";
+    };
   };
   outputs = {
     self,

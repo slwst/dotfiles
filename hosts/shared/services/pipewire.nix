@@ -8,6 +8,18 @@
       enable = true;
       support32Bit = true;
     };
+    extraConfig = {
+      pipewire = {
+        "92-low-latency.conf" = {
+          context.properties = {
+            default.clock.rate = 48000;
+            default.clock.quantum = 1024;
+            default.clock.min-quantum = 1024;
+            default.clock.max-quantum = 1024;
+          };
+        };
+      };
+    };
   };
 
   systemd.user.services = {
@@ -16,6 +28,8 @@
   };
 
 
+
+/*
   environment.etc = let
     json = pkgs.formats.json {};
   in {
@@ -54,4 +68,6 @@
       };
     };
   };
+
+*/
 }
