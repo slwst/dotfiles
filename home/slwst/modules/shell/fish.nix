@@ -23,8 +23,10 @@
     };
     shellAliases = {
       cat = "bat";
+      k = "kubectl";
       ssh = "kitty +kitten ssh";
       newbg = "systemctl --user start feh-random-bg";
+      k3sUse = "set -l KUBECONFIG /etc/rancher/k3s/k3s.yaml";
     };
     interactiveShellInit = ''
       # enable transient prompt with starship

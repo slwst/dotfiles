@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -8,18 +9,21 @@
     alsa-plugins
     alsa-tools
     alsa-utils
+    awscli2
 
     gsettings-desktop-schemas
     appimage-run
     bandwhich
     blender
+    bluetuith
     bottles
     brave
     cached-nix-shell
     cinnamon.nemo
     coreutils
-    dconf
     d2
+    dconf
+    dig
     fd
     ffmpeg-full
     freecad
@@ -30,8 +34,11 @@
     glxinfo
     gnome.gucharmap
     gnome.gnome-power-manager
+    gnome.nautilus
+    gnome.sushi
     goverlay
     google-cloud-sdk
+    kubernetes-helm
     imagemagick
     jq
     kicad
@@ -40,14 +47,14 @@
     libreoffice-fresh
     license-generator
     lm_sensors
-    lutris
     mangohud
     mpv
+    mumble
     neo
     neofetch
     nitch
     nvitop
-    obsidian
+    obs-studio
     openssl
     pamixer
     pavucontrol
@@ -55,6 +62,7 @@
     protonup
     pulseaudio
     psmisc
+    inputs.pyfa.packages.${system}.pyfa
     razergenie
     ripgrep
     rsync
@@ -69,6 +77,7 @@
     ttyper
     unzip
     viu
+    vlc
     xdg-user-dirs
     xdg-utils
     yubikey-personalization

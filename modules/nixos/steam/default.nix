@@ -39,6 +39,11 @@ in {
         steamcmd
         SDL2
         protontricks
+        lutris
+        wine
+        wine64
+        winetricks
+        python3
       ];
     };
   };

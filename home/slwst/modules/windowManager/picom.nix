@@ -1,6 +1,6 @@
 {
   services.picom = {
-    enable = false;
+    enable = true;
     backend = "glx";
     vSync = true;
 
@@ -29,7 +29,7 @@
 
     fade = true;
     fadeDelta = 10;
-    fadeSteps = [0.03 0.03];
+    fadeSteps = [0.06 0.06];
     fadeExclude = [
       "window_type = 'combo'"
       "window_type = 'desktop'"
