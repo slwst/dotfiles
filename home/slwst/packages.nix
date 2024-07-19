@@ -47,7 +47,9 @@
     libreoffice-fresh
     license-generator
     lm_sensors
+    mame
     mangohud
+    mermaid-cli
     mpv
     mumble
     neo
@@ -59,6 +61,7 @@
     pamixer
     pavucontrol
     playerctl
+    plantuml
     protonup
     pulseaudio
     psmisc
@@ -76,6 +79,7 @@
     tree
     ttyper
     unzip
+    usbutils
     viu
     vlc
     xdg-user-dirs

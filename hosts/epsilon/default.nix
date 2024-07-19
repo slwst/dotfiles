@@ -60,6 +60,8 @@
     };
   };
 
+  systemd.services.k3s.wantedBy = lib.mkForce [ ];
+
   environment = {
     systemPackages = with pkgs; [
       acpi

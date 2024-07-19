@@ -24,16 +24,7 @@ in {
 
       dpi = 109;
       exportConfiguration = true;
-      layout = "${cfg.layout}";
-
-      libinput = {
-        enable = true;
-        touchpad = {
-          disableWhileTyping = true;
-          naturalScrolling = true;
-        };
-      };
-
+      xkb.layout = "${cfg.layout}";
       config = lib.mkAfter ''
         Section "InputClass"
          Identifier   "ds-touchpad"
@@ -42,9 +33,7 @@ in {
          Option       "Ignore" "True"
         EndSection
       '';
-
       displayManager = {
-        defaultSession = "none+i3";
         lightdm = {
           enable = true;
           background = builtins.toPath (pkgs.fetchFromGitHub
@@ -74,6 +63,14 @@ in {
 
       # TODO move non-default config items to user modules
       windowManager.i3.enable = true;
+    };
+    services.displayManager.defaultSession = "none+i3";
+    services.libinput = {
+      enable = true;
+      touchpad = {
+        disableWhileTyping = true;
+        naturalScrolling = true;
+      };
     };
     hardware.opengl = {
       enable = true;
