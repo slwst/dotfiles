@@ -7,6 +7,9 @@
   programs.fish = {
     enable = true;
     functions = {
+      mmdoc = ''
+        mmdc -w 1024 -H 768 -i ./$argv[1].mmd -o $argv[1].png && feh $argv[1].png &
+      '';
       fish_greeting = ''
         status --is-login
         if [ $status != 0 ]

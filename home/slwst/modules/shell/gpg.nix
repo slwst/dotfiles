@@ -42,7 +42,7 @@
   services = {
     gpg-agent = {
       enable = true;
-      pinentryFlavor = "gnome3";
+      pinentryPackage = pkgs.pinentry-gnome3;
       enableSshSupport = true;
       enableFishIntegration = true;
     };

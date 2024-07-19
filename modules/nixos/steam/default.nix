@@ -16,6 +16,14 @@ in {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = false;
+      protontricks.enable = true;
+      gamescopeSession.enable = true;
+      /*
+      extraPackages = with pkgs; [
+        mumble_overlay
+        gamescope
+      ];
+      */
     };
     programs.gamemode.enable = true;
 
@@ -43,6 +51,7 @@ in {
         wine
         wine64
         winetricks
+        wmctrl
         python3
       ];
     };
