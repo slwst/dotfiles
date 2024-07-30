@@ -10,6 +10,17 @@
       mmdoc = ''
         mmdc -w 1024 -H 768 -i ./$argv[1].mmd -o $argv[1].png && feh $argv[1].png &
       '';
+      # Place this in your Fish functions folder to make it available immediately
+      # e.g. ~/.config/fish/functions/envsource.fish
+      #
+      # Usage: envsource <path/to/env>
+      envsource = ''
+        for line in (cat $argv | grep -v '^#')
+          set item (string split -m 1 '=' $line)
+          set -gx $item[1] $item[2]
+          echo "Exported key $item[1]"
+        end
+      '';
       fish_greeting = ''
         status --is-login
         if [ $status != 0 ]
@@ -30,6 +41,7 @@
       ssh = "kitty +kitten ssh";
       newbg = "systemctl --user start feh-random-bg";
       k3sUse = "set -l KUBECONFIG /etc/rancher/k3s/k3s.yaml";
+      xc = "xclip -selection clipboard";
     };
     interactiveShellInit = ''
       # enable transient prompt with starship

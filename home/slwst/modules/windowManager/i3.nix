@@ -102,7 +102,7 @@ in {
             {
               command =
                 (pkgs.writeShellScriptBin "music-startup" ''
-                  i3-msg 'exec spotifywm'
+                  i3-msg 'exec spotify'
                   ${pkgs.coreutils}/bin/sleep 1
                   i3-msg 'workspace 8:music; split vertical'
 #                  i3-msg 'exec glava'

@@ -26,7 +26,11 @@
         idle-timeout = 1;
         bufferline = "always";
         true-color = true;
-        lsp.display-messages = true;
+        lsp = {
+          enable = true;
+          display-messages = true;
+          display-inlay-hints = true;
+        };
         rulers = [80];
         indent-guides = {
           render = true;
@@ -63,7 +67,9 @@
         {
           name = "go";
           auto-format = true;
-          formatter.command = "${pkgs.go}/bin/gofmt";
+          comment-token = "//";
+          #formatter.command = "${pkgs.gotools}/bin/goimports";
+          language-servers = [ "gopls" "golangci-lint-langserver" ];
         }
         {
           name = "javascript";
@@ -86,6 +92,34 @@
         };
         gopls = {
           command = "${pkgs.gopls}/bin/gopls";
+          config = {
+            gofumpt = true;
+            local = "goimports";
+            semanticTokens = true;
+            staticcheck = true;
+            usePlaceholders = true;
+            completeUnimported = true;
+            verboseOutput = true;
+            analyses = {
+              fieldalignment = true;
+              nilness = true;
+              unusuedparams = true;
+              unusuedwrite = true;
+              useany = true;
+            };
+            hints = {
+              assignVariableType = true;
+              compositeLiteralFields = true;
+              compositeLiteralTypes = true;
+              constantValues = true;
+              functionTypeParameters = true;
+              parameterNames = true;
+              rangeVariableTypes = true;
+            };
+          };
+        };
+        golangci-lint-langserver = {
+          command = "${pkgs.golangci-lint-langserver}/bin/golangci-lint-langserver";
         };
         nil = {
           command = lib.getExe pkgs.nil;
@@ -106,11 +140,12 @@
     delve
     gawk
     go
+    golangci-lint-langserver
     gomodifytags
     gopkgs
     gopls
     gotests
-    go-tools
+    gotools
     java-language-server
     kotlin-language-server
     ktlint

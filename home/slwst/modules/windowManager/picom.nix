@@ -44,8 +44,11 @@
 
     activeOpacity = 1.0;
     inactiveOpacity = 1.0;
-    menuOpacity = 1.0;
-    opacityRules = ["70:class_g = 'splash'"];
+    menuOpacity = .4;
+    opacityRules = [
+      "70:class_g = 'splash'"
+      "40:_NET_WM_NAME@:s *?= 'Talking UI' && !focused"
+    ];
 
     wintypes = {
       tooltip = {
@@ -67,14 +70,14 @@
       shadow-color = "#000000";
       shadow-ignore-shaped = false;
 
-      frame-opacity = 1.0;
+      frame-opacity = .60;
       inactive-opacity-override = false;
       focus-exclude = [
         "class_g = 'Peek'"
         "class_g = 'Cairo-clock'"
         "window_type = 'combo'"
         "window_type = 'desktop'"
-        "window_type = 'dialog'"
+       # "window_type = 'dialog'"
         "window_type = 'dnd'"
         "window_type = 'dock'"
         "window_type = 'dropdown_menu'"
@@ -95,7 +98,7 @@
       blur-method = "dual_kawase";
       blur-kernel = "11x11gaussian";
       blur-deviation = 1.0;
-      blur-strength = 10;
+      blur-strength = 5;
       blur-background = true;
       blur-background-frame = true;
       blur-background-fixed = true;
@@ -116,7 +119,7 @@
       mark-wmwin-focused = true;
       mark-ovredir-focused = true;
       detect-rounded-corners = true;
-      detect-client-opacity = true;
+#      detect-client-opacity = true;
       detect-transient = true;
       detect-client-leader = true;
       glx-no-stencil = true;

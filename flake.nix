@@ -40,6 +40,9 @@
         allowBroken = true;
         allowUnfree = true;
         tarball-ttl = 0;
+        permittedInsecurePackages = [
+          "openssl-1.1.1w"
+        ];
       };
     }; 
     in rec

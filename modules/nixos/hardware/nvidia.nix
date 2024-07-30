@@ -47,6 +47,7 @@ in {
     environment.systemPackages = with pkgs; [ vulkan-validation-layers ];
 
     hardware = {
+    /*
       opengl = {
         enable = true;
         driSupport = true;
@@ -56,8 +57,9 @@ in {
           vaapiVdpau
           libvdpau-va-gl
         ];
-        setLdLibraryPath = true;
+        #setLdLibraryPath = true;
       };
+      */
       nvidia = {
         forceFullCompositionPipeline = true;
         modesetting.enable = true;
