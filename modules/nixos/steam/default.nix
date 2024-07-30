@@ -17,13 +17,12 @@ in {
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = false;
       protontricks.enable = true;
-      gamescopeSession.enable = true;
-      /*
+      gamescopeSession.enable = false;
       extraPackages = with pkgs; [
-        mumble_overlay
-        gamescope
+        mumble
+        #gamescope
+        openssl_1_1
       ];
-      */
     };
     programs.gamemode.enable = true;
 
@@ -41,9 +40,7 @@ in {
       };
 
       systemPackages = with pkgs; [
-        nspr # albion
         protonup
-        #        gamemode
         steamcmd
         SDL2
         protontricks

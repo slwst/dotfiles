@@ -24,9 +24,12 @@
     d2
     dconf
     dig
+    (discord.override {
+      withOpenASAR = true;
+    })
     fd
     ffmpeg-full
-    freecad
+    #freecad
     fzf
     gh
     gimp
@@ -41,7 +44,7 @@
     kubernetes-helm
     imagemagick
     jq
-    kicad
+    #kicad #currently broken in unstable
     libpng
     librecad
     libreoffice-fresh
@@ -73,7 +76,7 @@
     slack
     spotifywm
     strace
-    stress
+    #stress
     s-tui
     teamspeak_client
     tree
