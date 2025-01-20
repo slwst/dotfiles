@@ -51,7 +51,7 @@
   };
 
   home.packages = with pkgs; [
-    gnome.gnome-themes-extra
+    gnome-themes-extra
     gtk-engine-murrine
     gtk_engines
   ];

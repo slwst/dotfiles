@@ -5,6 +5,9 @@
 }: {
   programs.kitty = {
     enable = true;
+    keybindings = {
+      "ctrl+shift+enter" = "launch --cwd=current";
+    };
     settings = {
       #font_family = "mononoki Nerd Font Mono";
       font_family = "VictorMono Nerd Font Mono";

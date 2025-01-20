@@ -12,7 +12,7 @@
       MaxRetentionSec = 3456000
     '';
     udev.packages = with pkgs; [
-      gnome.gnome-settings-daemon
+      gnome-settings-daemon
       yubikey-personalization
     ];
   };

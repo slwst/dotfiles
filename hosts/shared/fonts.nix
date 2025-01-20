@@ -5,10 +5,8 @@
 }: {
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override {fonts = [
-      "Mononoki"
-      "VictorMono"
-      ];})
+      nerd-fonts.victor-mono
+      nerd-fonts.mononoki
       inter
       (google-fonts.override {fonts = ["Nunito"];}).out
       noto-fonts

@@ -19,7 +19,7 @@
     bottles
     brave
     cached-nix-shell
-    cinnamon.nemo
+    nemo
     coreutils
     d2
     dconf
@@ -35,10 +35,10 @@
     gimp
     glava
     glxinfo
-    gnome.gucharmap
-    gnome.gnome-power-manager
-    gnome.nautilus
-    gnome.sushi
+    gucharmap
+    gnome-power-manager
+    nautilus
+    sushi
     goverlay
     google-cloud-sdk
     kubernetes-helm
@@ -50,9 +50,11 @@
     libreoffice-fresh
     license-generator
     lm_sensors
+    gnumake
     mame
     mangohud
     mermaid-cli
+    mongodb-compass
     mpv
     mumble
     neo

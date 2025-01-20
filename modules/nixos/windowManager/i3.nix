@@ -103,6 +103,7 @@ in {
       gtk3
       gtk4
       papirus-icon-theme
+      skippy-xd
     ];
   };
 }

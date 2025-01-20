@@ -160,7 +160,6 @@
     nodePackages.jsonlint
     nodePackages.prettier
     nodePackages.typescript-language-server
-    nodePackages.vls
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     nodePackages.yarn
