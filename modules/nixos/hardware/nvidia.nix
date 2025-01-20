@@ -66,7 +66,7 @@ in {
         powerManagement.enable = true;
 
         # should be one release behind latest or stable
-        package = config.boot.kernelPackages.nvidiaPackages.production;
+        package = config.boot.kernelPackages.nvidiaPackages.beta;
         nvidiaSettings = true;
 
         # experimental

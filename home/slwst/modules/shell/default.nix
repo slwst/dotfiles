@@ -41,7 +41,7 @@ in {
     ./tmux.nix
   ];
   services = {
-    udiskie.enable = true;
+    udiskie.enable = false;
   };
   programs = {
     man.enable = true;

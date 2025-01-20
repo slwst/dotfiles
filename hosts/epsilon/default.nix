@@ -26,6 +26,9 @@
       systemd.enable = true;
       supportedFilesystems = ["btrfs"];
     };
+    extraModprobeConfig = ''
+      options usbcore use_both_schemes=y
+    '';
   };
 
   hardware = {
@@ -36,7 +39,6 @@
     i2c.enable = true;
     openrazer.enable = true;
 
-    pulseaudio.enable = false;
   };
 
   services = {
@@ -45,7 +47,7 @@
     #thermald.enable = true;
     upower.enable = true;
     hardware.openrgb = {
-      enable = true;
+      enable = false;
       motherboard = "intel";
       package = pkgs.openrgb-with-all-plugins;
     };
@@ -58,6 +60,7 @@
 #        "--container-runtime-endpoint unix:///run/podman/podman.sock"
       ];
     };
+    pulseaudio.enable = false;
   };
 
   systemd.services.k3s.wantedBy = lib.mkForce [ ];
